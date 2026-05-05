@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Have you walked</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Jersey+20&family=Jersey+25&family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="stage" aria-label="Have you walked demo">
+      <section class="screen title-screen is-active" id="titleScreen">
+        <img class="figma-reference" src="./figma-node-3-41.png" alt="" />
+        <button class="translate-hotspot" id="translateButton" aria-label="Translate"></button>
+        <button class="start-hotspot" id="startButton" aria-label="Start walking"></button>
+        <div class="localized-title" id="localizedTitle" aria-live="polite">行咗未？</div>
+      </section>
+
+      <section class="screen profile-screen" id="profileScreen" aria-label="User information">
+        <div class="step-dots" aria-hidden="true">
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <form class="profile-card" id="profileForm">
+          <img class="bag-art" src="./backpack-source.png" alt="" aria-hidden="true" />
+          <h1 class="who-title">
+            <img src="./who-are-you-title.svg" alt="" />
+            <span>Who Are You</span>
+          </h1>
+          <p>Let us know you</p>
+
+          <label>
+            <span>School</span>
+            <input id="schoolInput" name="school" autocomplete="organization" placeholder="Enter your school name..." required />
+          </label>
+
+          <label>
+            <span>Class</span>
+            <input id="classInput" name="className" placeholder="1A" required />
+          </label>
+
+          <label>
+            <span>Name</span>
+            <input id="nameInput" name="name" autocomplete="name" placeholder="Enter your name..." required />
+          </label>
+
+          <button class="next-button" type="submit">NEXT <span>›</span></button>
+        </form>
+      </section>
+
+      <section class="screen body-screen" id="bodyScreen" aria-label="Body data">
+        <div class="step-dots step-dots-two" aria-hidden="true">
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span></span>
+        </div>
+
+        <form class="profile-card body-card" id="bodyForm">
+          <div class="measure-art" aria-hidden="true">📏</div>
+          <h1 class="body-title-image">
+            <img src="./body-data-title.png" alt="" />
+            <span>Body Data</span>
+          </h1>
+          <p>To create your own partner</p>
+
+          <label>
+            <span>Age</span>
+            <div class="unit-field">
+              <input id="ageInput" name="age" inputmode="numeric" placeholder="Enter your age..." required />
+              <em>year</em>
+            </div>
+          </label>
+
+          <label>
+            <span>Height</span>
+            <div class="unit-field">
+              <input id="heightInput" name="height" inputmode="decimal" placeholder="Enter your height..." required />
+              <em>cm</em>
+            </div>
+          </label>
+
+          <label>
+            <span>Weight</span>
+            <div class="unit-field">
+              <input id="weightInput" name="weight" inputmode="decimal" placeholder="Enter your weight..." required />
+              <em>kg</em>
+            </div>
+          </label>
+
+          <div class="form-actions">
+            <button class="form-back-button" id="bodyBackButton" type="button"><span>‹</span> Back</button>
+            <button class="next-button create-button" type="submit">Create <span>›</span></button>
+          </div>
+        </form>
+      </section>
+
+      <section class="screen hatch-screen" id="hatchScreen" aria-label="Tap to hatch">
+        <button class="hatch-tap-area" id="hatchTapArea" type="button" aria-label="Tap the egg">
+          <div class="hatch-stars" aria-hidden="true"></div>
+          <header class="hatch-heading">
+            <h1 class="hatch-title-image">
+              <img src="./hatch-title.png" alt="" />
+              <span>Tap to Hatch!</span>
+            </h1>
+            <p>Your route companion is waiting...</p>
+          </header>
+
+          <div class="egg-wrap">
+            <div class="pet-egg" id="petEgg" aria-hidden="true">
+              <span class="crack crack-one"></span>
+              <span class="crack crack-two"></span>
+              <span class="crack crack-three"></span>
+            </div>
+            <strong class="tap-me-image">
+              <img src="./hatch-tap-me.png" alt="" />
+              <span>TAP ME!</span>
+            </strong>
+          </div>
+
+          <div class="hatch-progress" aria-hidden="true">
+            <div id="hatchProgressBar"></div>
+            <span id="hatchCounter">0/3</span>
+          </div>
+
+          <p class="hatch-tip" id="hatchTip">Tap the egg to meet your companion!</p>
+        </button>
+      </section>
+
+      <section class="screen partner-screen" id="partnerScreen" aria-label="Your own partner">
+        <div class="step-dots step-dots-complete" aria-hidden="true">
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+        </div>
+
+        <section class="partner-card">
+          <header class="partner-heading">
+            <h1>Your own partner</h1>
+            <p>Base on your data</p>
+          </header>
+
+          <div class="partner-pet-frame" aria-live="polite">
+            <button class="reroll-button" id="rerollPetButton" type="button" aria-label="Random pet">⟳</button>
+            <div id="partnerPetFrame"></div>
+          </div>
+
+          <section class="partner-stats">
+            <strong id="partnerName">User Name</strong>
+            <div class="stats-grid">
+              <div>
+                <span class="stat-icon">⛰</span>
+                <em>Explorer</em>
+              </div>
+              <div>
+                <span class="stat-icon">✧</span>
+                <em>LV : 01</em>
+              </div>
+              <div>
+                <span class="stat-icon">⌕</span>
+                <em>Smart</em>
+              </div>
+            </div>
+          </section>
+
+          <div class="form-actions partner-actions">
+            <button class="form-back-button" id="partnerBackButton" type="button"><span>‹</span> Back</button>
+            <button class="next-button create-button" id="partnerCreateButton" type="button">Create <span>›</span></button>
+          </div>
+        </section>
+      </section>
+
+      <section class="screen dashboard-screen" id="dashboardScreen" aria-label="Walking dashboard">
+        <section class="dashboard-user-card" aria-label="User status">
+          <div class="dashboard-user-row">
+            <strong id="dashboardUserName">User name</strong>
+            <button class="dashboard-settings" type="button" aria-label="Settings">⚙</button>
+          </div>
+          <div class="dashboard-level-row">
+            <span>Lv.01</span>
+            <div class="dashboard-exp-track"><div id="dashboardExpBar"></div></div>
+          </div>
+          <div class="dashboard-exp-row">
+            <span>Today Exp</span>
+            <em id="dashboardExpText">40/100</em>
+          </div>
+        </section>
+
+        <nav class="dashboard-side-nav" aria-label="Dashboard actions">
+          <button class="dashboard-side-button" id="dashboardFindButton" type="button" aria-label="Find routes">
+            <img src="./icon-find.png" alt="" />
+            <span>Find</span>
+          </button>
+          <button class="dashboard-side-button" type="button" aria-label="Shop">
+            <img src="./icon-shop.png" alt="" />
+            <span>Shop</span>
+          </button>
+          <button class="dashboard-side-button" type="button" aria-label="Achievements">
+            <img src="./icon-achieve.png" alt="" />
+            <span>Achieve</span>
+          </button>
+          <button class="dashboard-side-button" type="button" aria-label="School">
+            <img src="./icon-school.png" alt="" />
+            <span>School</span>
+          </button>
+          <button class="dashboard-side-caret" id="dashboardSideToggle" type="button" aria-label="Collapse dashboard actions"></button>
+        </nav>
+
+        <div class="dashboard-pet-stage" role="button" tabindex="0" aria-label="Pet your walking partner" aria-live="polite">
+          <img id="dashboardPetImage" src="./pet-blue.png" alt="Selected pet" />
+        </div>
+
+        <button class="dashboard-step-button" id="dashboardStepButton" type="button" aria-label="Today's steps">
+          <img src="./icon-footsteps.svg" alt="" />
+          <strong id="dashboardStepCount">1922</strong>
+        </button>
+
+        <section class="cards-collection" aria-label="Cards collection">
+          <header class="cards-collection-header">
+            <div>
+              <img src="./icon-cards.svg" alt="" />
+              <h2>Cards collection</h2>
+            </div>
+            <strong id="cardsCollectionCount">6/15</strong>
+          </header>
+
+          <div class="dashboard-card-strip">
+            <article class="collection-card">
+              <span class="card-number">#00001</span>
+              <img class="card-art" src="./card-white-heron.png" alt="White Heron" />
+              <h3>White Heron</h3>
+              <div class="card-stars" aria-label="2 stars">
+                <img src="./icon-star.svg" alt="" />
+                <img src="./icon-star.svg" alt="" />
+              </div>
+              <button class="translate-card-button" type="button" data-exp="20">Translated</button>
+            </article>
+
+            <article class="collection-card is-human">
+              <span class="card-number">#00001</span>
+              <img class="card-art" src="./card-eileen-chang.png" alt="Eileen Chang" />
+              <h3>Eileen Chang</h3>
+              <div class="card-stars" aria-label="2 stars">
+                <img src="./icon-star.svg" alt="" />
+                <img src="./icon-star.svg" alt="" />
+              </div>
+              <button class="translate-card-button" type="button" data-exp="35">Translated</button>
+            </article>
+
+            <article class="collection-card">
+              <span class="card-number">#00011</span>
+              <img class="card-art" src="./card-grey-heron.png" alt="Grey Heron" />
+              <h3>Grey Heron</h3>
+              <div class="card-stars" aria-label="2 stars">
+                <img src="./icon-star.svg" alt="" />
+                <img src="./icon-star.svg" alt="" />
+              </div>
+              <button class="translate-card-button" type="button" data-exp="20">Translated</button>
+            </article>
+
+            <article class="collection-card">
+              <span class="card-number">#00008</span>
+              <img class="card-art" src="./card-white-heron.png" alt="Common Kingfisher" />
+              <h3>Common Kingfisher</h3>
+              <div class="card-stars" aria-label="1 star">
+                <img src="./icon-star.svg" alt="" />
+              </div>
+              <button class="translate-card-button" type="button" data-exp="15">Translated</button>
+            </article>
+
+            <article class="collection-card is-human">
+              <span class="card-number">#00012</span>
+              <img class="card-art" src="./card-eileen-chang.png" alt="Route Memory" />
+              <h3>Route Memory</h3>
+              <div class="card-stars" aria-label="3 stars">
+                <img src="./icon-star.svg" alt="" />
+                <img src="./icon-star.svg" alt="" />
+                <img src="./icon-star.svg" alt="" />
+              </div>
+              <button class="translate-card-button" type="button" data-exp="45">Translated</button>
+            </article>
+
+            <article class="collection-card">
+              <span class="card-number">#00015</span>
+              <img class="card-art" src="./card-grey-heron.png" alt="Blue Coast" />
+              <h3>Blue Coast</h3>
+              <div class="card-stars" aria-label="2 stars">
+                <img src="./icon-star.svg" alt="" />
+                <img src="./icon-star.svg" alt="" />
+              </div>
+              <button class="translate-card-button" type="button" data-exp="25">Translated</button>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="screen walk-screen find-screen" id="walkScreen" aria-label="Find routes">
+        <header class="find-header">
+          <button class="find-icon-button" id="backButton" type="button" aria-label="Back to partner home">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <div class="find-title-block">
+            <h1>Find</h1>
+            <p>Discovering Hong Kong's biodiversity</p>
+          </div>
+          <button class="find-icon-button" type="button" aria-label="Search">
+            <img src="./find-search-icon.svg" alt="" />
+          </button>
+        </header>
+
+        <section class="find-categories" id="routeList" aria-label="Route categories"></section>
+
+        <button class="create-route-button" id="createRouteButton" type="button">I want to Create route</button>
+        <button class="my-route-button" id="myRouteButton" type="button" hidden>My route</button>
+      </section>
+
+      <section class="screen create-route-screen" id="createRouteScreen" aria-label="Create route">
+        <header class="create-route-header">
+          <button class="create-route-back" id="createRouteBackButton" type="button" aria-label="Back to find">
+            <img src="./create-route-back-icon.svg" alt="" />
+          </button>
+          <div class="create-route-title">
+            <h1>Create</h1>
+            <p>Create your own Hong kong route.</p>
+          </div>
+        </header>
+
+        <form class="create-route-form" id="createRouteForm">
+          <label class="route-form-field">
+            <span>Route Name</span>
+            <input type="text" name="routeName" placeholder="Enter route name" />
+          </label>
+
+          <label class="route-form-field">
+            <span>Location</span>
+            <input type="text" name="location" placeholder="e.g., Sha Tin, New Territories" />
+          </label>
+
+          <div class="route-map-field">
+            <div class="route-map-heading">
+              <span>Draw Route on Map</span>
+              <output id="customRouteLength">0.00 km</output>
+            </div>
+            <div class="route-map-canvas" id="createRouteMap" aria-label="Draw route on map"></div>
+            <div class="route-map-actions">
+              <p id="customRouteHint">Tap the map to add route points.</p>
+              <button id="undoRoutePointButton" type="button" disabled>Undo</button>
+            </div>
+          </div>
+
+          <fieldset class="route-range-field">
+            <legend>Route Time (minutes)</legend>
+            <div class="route-range-inputs">
+              <input type="number" name="timeMin" placeholder="Min" min="0" />
+              <span>-</span>
+              <input type="number" name="timeMax" placeholder="Max" min="0" />
+            </div>
+          </fieldset>
+
+          <fieldset class="route-range-field">
+            <legend>Route Length (km)</legend>
+            <div class="route-range-inputs">
+              <input type="number" name="lengthMin" placeholder="Min" min="0" step="0.1" />
+              <span>-</span>
+              <input type="number" name="lengthMax" placeholder="Max" min="0" step="0.1" />
+            </div>
+          </fieldset>
+
+          <fieldset class="difficulty-field">
+            <legend>Difficulty Level</legend>
+            <div class="difficulty-options">
+              <label>
+                <input type="radio" name="difficulty" value="easy" checked />
+                <span>EASY</span>
+              </label>
+              <label>
+                <input type="radio" name="difficulty" value="medium" />
+                <span>MEDIUM</span>
+              </label>
+              <label>
+                <input type="radio" name="difficulty" value="hard" />
+                <span>HARD</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="route-form-field route-description-field">
+            <span>Description</span>
+            <textarea name="description" placeholder="Describe the route and what students can discover..."></textarea>
+          </label>
+
+          <button class="create-route-submit" type="submit">CREATE ROUTE</button>
+        </form>
+      </section>
+
+      <section class="screen literature-screen" id="literatureScreen" aria-label="Literature routes">
+        <header class="literature-header">
+          <button class="find-icon-button" id="literatureBackButton" type="button" aria-label="Back to find">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <div class="literature-title-block">
+            <h1>Literature</h1>
+            <p>Discovering Hong Kong's history and culture</p>
+          </div>
+          <button class="find-icon-button" type="button" aria-label="Search literature routes">
+            <img src="./find-search-icon.svg" alt="" />
+          </button>
+        </header>
+
+        <nav class="literature-filter-tabs" aria-label="Route difficulty">
+          <button class="is-active" type="button" data-filter="all">ALL</button>
+          <button type="button" data-filter="easy">EASY</button>
+          <button type="button" data-filter="medium">MIDIUM</button>
+          <button type="button" data-filter="hard">HARD</button>
+        </nav>
+
+        <section class="literature-route-list" aria-label="Literature route list">
+          <article class="literature-route-card" data-difficulty="easy">
+            <div class="literature-route-image">
+              <img src="./literature-hku.png" alt="" />
+              <span class="difficulty-badge">EASY</span>
+              <img class="route-chevron" src="./literature-card-chevron.svg" alt="" />
+            </div>
+            <div class="literature-route-body">
+              <h2>HK University – Main Building</h2>
+              <p>Eileen Chang studied at HKU 1939–41; wartime disruption written into her essay 'Whispers'</p>
+              <div class="literature-route-meta">
+                <img src="./literature-like-icon.svg" alt="" />
+                <span>Contains over<br /><strong>10</strong> kinds of animals and plants</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="literature-route-card" data-difficulty="easy">
+            <div class="literature-route-image">
+              <img src="./literature-st-stephen.png" alt="" />
+              <span class="difficulty-badge">EASY</span>
+              <img class="route-chevron" src="./literature-card-chevron.svg" alt="" />
+            </div>
+            <div class="literature-route-body">
+              <h2>St. Stephen's Girls' College</h2>
+              <p>Xiao Hong passed away here in 1942; memorial plaque inside the school</p>
+              <div class="literature-route-meta">
+                <img src="./literature-like-icon.svg" alt="" />
+                <span>Contains over<br /><strong>10</strong> kinds of animals and plants</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="literature-route-card" data-difficulty="medium">
+            <div class="literature-route-image">
+              <img src="./literature-repulse-bay.png" alt="" />
+              <span class="difficulty-badge is-medium">Medium</span>
+              <img class="route-chevron" src="./literature-card-chevron.svg" alt="" />
+            </div>
+            <div class="literature-route-body">
+              <h2>Repulse Bay Hotel</h2>
+              <p>Setting for 'Love in a Fallen City'; inspiration for the iconic wall</p>
+              <div class="literature-route-meta">
+                <img src="./literature-like-icon.svg" alt="" />
+                <span>Contains over<br /><strong>10</strong> kinds of animals and plants</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="literature-route-card" data-difficulty="easy">
+            <div class="literature-route-image">
+              <img src="./literature-confucian-hall.png" alt="" />
+              <img class="route-chevron" src="./literature-card-chevron.svg" alt="" />
+            </div>
+            <div class="literature-route-body">
+              <h2>Confucian Hall</h2>
+              <p>Cai visited and lectured here; a key landmark in the literary walk</p>
+              <div class="literature-route-meta">
+                <img src="./literature-like-icon.svg" alt="" />
+                <span>Contains over<br /><strong>10</strong> kinds of animals and plants</span>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section class="screen literature-screen nature-screen" id="natureScreen" aria-label="Nature routes">
+        <header class="literature-header">
+          <button class="find-icon-button" id="natureBackButton" type="button" aria-label="Back to find">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <div class="literature-title-block">
+            <h1>Nature</h1>
+            <p>Discovering Hong Kong's history and culture</p>
+          </div>
+          <button class="find-icon-button" type="button" aria-label="Search nature routes">
+            <img src="./find-search-icon.svg" alt="" />
+          </button>
+        </header>
+
+        <nav class="literature-filter-tabs nature-filter-tabs" aria-label="Nature route difficulty">
+          <button class="is-active" type="button" data-filter="all">ALL</button>
+          <button type="button" data-filter="easy">EASY</button>
+          <button type="button" data-filter="medium">MIDIUM</button>
+          <button type="button" data-filter="hard">HARD</button>
+        </nav>
+
+        <section class="literature-route-list" aria-label="Nature route list">
+          <article class="literature-route-card nature-route-card" data-difficulty="easy">
+            <div class="literature-route-image">
+              <img src="./nature-yuen-chau-kok.png" alt="" />
+              <span class="difficulty-badge is-nature">EASY</span>
+              <img class="route-chevron" src="./literature-card-chevron.svg" alt="" />
+            </div>
+            <div class="literature-route-body">
+              <h2>Yuen Chau Kok Park</h2>
+              <p>Yuen Chau Kok Park in Sha Tin is built around a hill that offers a modest hike for those pressed for time or feeling a little intimidated by the mountains.</p>
+              <div class="literature-route-meta">
+                <img src="./literature-like-icon.svg" alt="" />
+                <span>Contains over<br /><strong>10</strong> kinds of animals and plants</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="literature-route-card nature-route-card" data-difficulty="easy">
+            <div class="literature-route-image">
+              <img src="./nature-pak-shek-kok.png" alt="" />
+              <span class="difficulty-badge is-nature">EASY</span>
+              <img class="route-chevron" src="./literature-card-chevron.svg" alt="" />
+            </div>
+            <div class="literature-route-body">
+              <h2>Pak Shek Kok Promenade</h2>
+              <p>The Pak Shek Kok waterfront promenade stretches approximately 2 kilometers, featuring a 9.5-meter-wide pedestrian walkway along the coast.</p>
+              <div class="literature-route-meta">
+                <img src="./literature-like-icon.svg" alt="" />
+                <span>Contains over<br /><strong>10</strong> kinds of animals and plants</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="literature-route-card nature-route-card" data-difficulty="medium">
+            <div class="literature-route-image">
+              <img src="./nature-hung-mui-kuk.png" alt="" />
+              <span class="difficulty-badge is-medium">MEDIUN</span>
+              <img class="route-chevron" src="./literature-card-chevron.svg" alt="" />
+            </div>
+            <div class="literature-route-body">
+              <h2>Hung Mui Kuk Hiking Trail</h2>
+              <p>This area used to be famous for its abundant bayberry trees during spring and summer, hence its name.</p>
+              <div class="literature-route-meta">
+                <img src="./literature-like-icon.svg" alt="" />
+                <span>Contains over<br /><strong>10</strong> kinds of animals and plants</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="literature-route-card nature-route-card" data-difficulty="hard">
+            <div class="literature-route-image">
+              <img src="./nature-tao-fong-shan.png" alt="" />
+              <span class="difficulty-badge is-hard">HARD</span>
+              <img class="route-chevron" src="./literature-card-chevron.svg" alt="" />
+            </div>
+            <div class="literature-route-body">
+              <h2>Tao Fong Shan</h2>
+              <p>Built in 1930, the complex is now a Grade II historic building in Hong Kong, and a 12-meter-high cross stands on its east side.</p>
+              <div class="literature-route-meta">
+                <img src="./literature-locked-like-icon.svg" alt="" />
+                <span>Contains over<br /><strong>10</strong> kinds of animals and plants</span>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section class="recommendation-overlay" id="recommendationOverlay" aria-hidden="true">
+        <div class="recommendation-panel" role="dialog" aria-modal="true" aria-labelledby="recommendationTitle">
+          <img class="recommendation-bot" src="./recommendation-bot.gif" alt="" aria-hidden="true" />
+          <button class="recommendation-close" id="recommendationCloseButton" type="button" aria-label="Close recommendation">×</button>
+
+          <header class="recommendation-heading">
+            <h1 id="recommendationTitle">Recommendation</h1>
+            <p>Based on Hong Kong's courses</p>
+          </header>
+
+          <div class="weather-summary" aria-label="Hong Kong weather">
+            <span><strong class="weather-icon is-temp">🌡️</strong><em id="weatherTemp">20°C</em></span>
+            <span><strong class="weather-icon is-rain">💧</strong><em id="weatherHumidity">70%</em></span>
+            <span><strong class="weather-icon is-cloud" id="weatherConditionIcon">☁️</strong><em id="weatherCondition">Cloudy</em></span>
+          </div>
+
+          <article class="recommendation-card">
+            <div class="recommendation-image">
+              <img id="recommendationRouteImage" src="./literature-hku.png" alt="" />
+              <span id="recommendationDifficulty">EASY</span>
+            </div>
+            <div class="recommendation-copy">
+              <h2 id="recommendationRouteTitle">Harbour Literary Walk</h2>
+              <p id="recommendationReason">Urban and parks routes, gentle slopes and rich scenes. Perfect for beginner exploring.</p>
+              <div class="recommendation-actions">
+                <button class="recommendation-secondary" id="recommendationDetailsButton" type="button">View Details</button>
+                <button class="recommendation-primary" id="recommendationRouteButton" type="button">See The Route</button>
+              </div>
+            </div>
+          </article>
+
+          <p class="recommendation-note">*Each route features gamification features to let you explore while walking</p>
+        </div>
+      </section>
+
+      <section class="screen route-walk-screen" id="routeWalkScreen" aria-label="Yuen Chau Kok Park route">
+        <div class="route-walk-map">
+          <img src="./yuen-walk-map-base.png" alt="" />
+          <button class="route-photo-point is-point-one" id="yuenCheckpointOneButton" type="button" aria-label="Open checkpoint photo: Yuen Chau Kok Park viewpoint">
+            <img src="./yuen-checkpoint-1-thumb.png" alt="" />
+          </button>
+          <button class="route-walk-back" id="routeWalkBackButton" type="button" aria-label="Back to route details">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <aside class="route-walk-distance" aria-label="Today's walk">
+            <span>Today’s Walk</span>
+            <strong>1.2km</strong>
+          </aside>
+          <p class="route-walk-name">Yuen chau Kok Park</p>
+        </div>
+
+        <section class="route-walk-collection" aria-label="Route check-in collection">
+          <nav class="route-walk-tabs" aria-label="Route content tabs">
+            <button class="is-active" type="button" data-walk-tab="items">Items to be unlocked</button>
+            <button type="button" data-walk-tab="discussion">Discussion Area</button>
+          </nav>
+
+          <div class="route-unlock-grid route-walk-panel is-active" data-walk-panel="items">
+            <article class="unlock-card">
+              <div class="unlock-image is-gold">
+                <img src="./yuen-walk-item-a.png" alt="" />
+              </div>
+              <h2>Mysterious items A</h2>
+              <p>This area was discovered</p>
+              <strong><span aria-hidden="true">♡</span>120m</strong>
+            </article>
+
+            <article class="unlock-card">
+              <div class="unlock-image is-gold">
+                <img src="./yuen-walk-item-b.png" alt="" />
+              </div>
+              <h2>Mysterious items B</h2>
+              <p>This area was discovered</p>
+              <strong><span aria-hidden="true">♡</span>350m</strong>
+            </article>
+
+            <article class="unlock-card is-locked">
+              <div class="unlock-lock" aria-hidden="true"></div>
+              <div class="unlock-image is-muted">
+                <img src="./yuen-walk-item-c.png" alt="" />
+              </div>
+              <h2>Mysterious items C</h2>
+              <p>This area was discovered</p>
+              <strong><span aria-hidden="true">♡</span>580m</strong>
+            </article>
+
+            <article class="unlock-card is-locked">
+              <div class="unlock-lock" aria-hidden="true"></div>
+              <div class="unlock-image is-muted">
+                <img src="./yuen-walk-item-d.png" alt="" />
+              </div>
+              <h2>Mysterious items D</h2>
+              <p>This area was discovered</p>
+              <strong><span aria-hidden="true">♡</span>720m</strong>
+            </article>
+          </div>
+
+          <div class="route-discussion-panel route-walk-panel" data-walk-panel="discussion" hidden>
+            <div class="discussion-thread" id="discussionThread" aria-live="polite">
+              <article class="discussion-message is-friend">
+                <div class="discussion-avatar is-blue" aria-hidden="true"></div>
+                <div class="discussion-bubble">
+                  <strong>Alice</strong>
+                  <p>The scenery here is truly beautiful!</p>
+                </div>
+              </article>
+
+              <article class="discussion-message is-me">
+                <div class="discussion-bubble is-orange">
+                  <p>I think so too!</p>
+                </div>
+              </article>
+
+              <article class="discussion-message is-friend">
+                <div class="discussion-avatar is-yellow" aria-hidden="true">
+                  <img src="./yuen-discussion-frog.png" alt="" />
+                </div>
+                <div class="discussion-bubble is-wide">
+                  <strong>Lila</strong>
+                  <p>Let’s all work hard and explore together!</p>
+                </div>
+              </article>
+            </div>
+
+            <form class="discussion-input-bar" id="discussionInputBar">
+              <button class="discussion-tool-button" type="button" aria-label="Open discussion tools">
+                <span></span>
+              </button>
+              <input id="discussionMessageInput" type="text" placeholder="Input message..." aria-label="Input message" />
+              <button class="discussion-send-button" type="submit" aria-label="Send message">
+                <span></span>
+              </button>
+            </form>
+          </div>
+        </section>
+      </section>
+
+      <section class="screen checkpoint-screen" id="checkpointScreen" aria-label="Yuen Chau Kok Park checkpoint">
+        <div class="checkpoint-hero">
+          <img src="./yuen-checkpoint-1-hero.png" alt="" />
+          <button class="route-walk-back" id="checkpointBackButton" type="button" aria-label="Back to route map">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <aside class="route-walk-distance" aria-label="Today's walk">
+            <span>Today’s Walk</span>
+            <strong>1.2km</strong>
+          </aside>
+          <button class="checkpoint-arrived-button" id="checkpointArrivedButton" type="button">
+            <span>I got here !</span>
+            <img src="./yuen-camera-icon.svg" alt="" />
+          </button>
+        </div>
+
+        <section class="route-walk-collection checkpoint-collection" aria-label="Checkpoint collection">
+          <nav class="route-walk-tabs" aria-label="Checkpoint content tabs">
+            <button class="is-active" type="button">Items to be unlocked</button>
+            <button type="button">Discussion Area</button>
+          </nav>
+
+          <div class="route-unlock-grid">
+            <article class="unlock-card">
+              <div class="unlock-image is-gold">
+                <img src="./yuen-walk-item-a.png" alt="" />
+              </div>
+              <h2>Mysterious items A</h2>
+              <p>This area was discovered</p>
+              <strong><span aria-hidden="true">♡</span>120m</strong>
+            </article>
+
+            <article class="unlock-card">
+              <div class="unlock-image is-gold">
+                <img src="./yuen-walk-item-b.png" alt="" />
+              </div>
+              <h2>Mysterious items B</h2>
+              <p>This area was discovered</p>
+              <strong><span aria-hidden="true">♡</span>350m</strong>
+            </article>
+
+            <article class="unlock-card is-locked">
+              <div class="unlock-lock" aria-hidden="true"></div>
+              <div class="unlock-image is-muted">
+                <img src="./yuen-walk-item-c.png" alt="" />
+              </div>
+              <h2>Mysterious items C</h2>
+              <p>This area was discovered</p>
+              <strong><span aria-hidden="true">♡</span>580m</strong>
+            </article>
+
+            <article class="unlock-card is-locked">
+              <div class="unlock-lock" aria-hidden="true"></div>
+              <div class="unlock-image is-muted">
+                <img src="./yuen-walk-item-d.png" alt="" />
+              </div>
+              <h2>Mysterious items D</h2>
+              <p>This area was discovered</p>
+              <strong><span aria-hidden="true">♡</span>720m</strong>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="screen camera-checkin-screen" id="cameraCheckinScreen" aria-label="Camera checkpoint check-in">
+        <header class="camera-checkin-header">
+          <button class="route-walk-back" id="cameraBackButton" type="button" aria-label="Back to checkpoint">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <div>
+            <h1 id="cameraCheckpointTitle">Checkpoint</h1>
+            <p id="cameraCheckpointMeta">GPS check within 80m</p>
+          </div>
+        </header>
+
+        <div class="camera-frame">
+          <video id="cameraPreview" autoplay playsinline muted></video>
+          <canvas id="cameraCanvas" hidden></canvas>
+          <img id="capturedPhotoPreview" alt="" hidden />
+          <p class="camera-empty-state" id="cameraEmptyState">Opening camera...</p>
+        </div>
+
+        <section class="camera-status-card" aria-live="polite">
+          <p id="cameraStatusText">Requesting camera and location once.</p>
+          <strong id="cameraDistanceText">Distance: --</strong>
+        </section>
+
+        <div class="camera-actions">
+          <button class="camera-secondary-button" id="retryLocationButton" type="button">Retry GPS</button>
+          <button class="camera-primary-button" id="captureCheckinButton" type="button">Take Photo</button>
+        </div>
+      </section>
+
+      <section class="reward-modal" id="rewardModal" aria-hidden="true">
+        <div class="reward-panel" role="dialog" aria-modal="true" aria-labelledby="rewardTitle">
+          <button class="reward-x-button" id="rewardCloseButton" type="button" aria-label="Close reward">×</button>
+          <h1 id="rewardTitle">Congratulations!</h1>
+          <p class="reward-subtitle">You've unlocked a new item</p>
+          <div class="reward-card-body">
+            <div class="reward-item-frame">
+              <img id="rewardItemImage" src="./reward-item-a-box.png" alt="" />
+            </div>
+            <h2 id="rewardItemName">Mysterious Item A</h2>
+            <p id="rewardItemCopy">A rare treasure found in Yuen chau Kok Park. This item holds the secrets of the literary walk.</p>
+          </div>
+          <button class="reward-claim-button" id="rewardClaimButton" type="button">Claim Reward</button>
+        </div>
+      </section>
+
+      <section class="route-detail-overlay" id="routeDetailOverlay" aria-hidden="true">
+        <article class="route-detail-card" role="dialog" aria-modal="true" aria-labelledby="routeDetailTitle">
+          <div class="route-detail-hero">
+            <img id="routeDetailHeroImage" src="./route-detail-yuen-chau-kok.png" alt="" />
+            <span class="route-detail-badge" id="routeDetailDifficulty">EASY</span>
+            <button class="route-detail-close" id="routeDetailCloseButton" type="button" aria-label="Close route details">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+
+          <section class="route-detail-body">
+            <h1 id="routeDetailTitle">Yuen Chau Kok Park</h1>
+            <p class="route-detail-location" id="routeDetailLocation">Sha Tin, New Territories</p>
+
+            <div class="route-stats">
+              <div>
+                <span class="route-stat-icon icon-clock" aria-hidden="true"></span>
+                <p>Route Time</p>
+                <strong id="routeDetailTime">35-55 <small>min</small></strong>
+              </div>
+              <div>
+                <span class="route-stat-icon icon-flag" aria-hidden="true"></span>
+                <p>Route Length</p>
+                <strong id="routeDetailLength">~1 <small>km</small></strong>
+              </div>
+            </div>
+
+            <div class="route-reward-title">
+              <span class="route-card-icon" aria-hidden="true"></span>
+              <p>Cards you can get</p>
+            </div>
+
+            <div class="route-reward-cards" aria-label="Cards you can get">
+              <article class="mini-reward-card is-left">
+                <span class="reward-number">#00001</span>
+                <img class="reward-image" src="./route-card-common-kingfisher.png" alt="" />
+                <h2 class="reward-name">Common Kingfisher</h2>
+                <p class="reward-stars">★★</p>
+                <button type="button">Translated</button>
+              </article>
+              <article class="mini-reward-card is-center">
+                <span class="reward-number">#00002</span>
+                <img class="reward-image" src="./route-card-white-rumped-munia.png" alt="" />
+                <h2 class="reward-name">White-rumped Munia</h2>
+                <p class="reward-stars">★★</p>
+                <button type="button">Translated</button>
+              </article>
+              <article class="mini-reward-card is-right">
+                <span class="reward-number">#00003</span>
+                <img class="reward-image" src="./route-card-trailing-lantana.png" alt="" />
+                <h2 class="reward-name">Trailing Lantana</h2>
+                <p class="reward-stars">★</p>
+                <button type="button">Translated</button>
+              </article>
+            </div>
+          </section>
+
+          <div class="route-detail-fade"></div>
+          <button class="lets-walk-button" id="letsWalkButton" type="button">LET’S WALK</button>
+        </article>
+      </section>
+    </main>
+
+    <dialog id="routeDialog" class="route-dialog">
+      <form method="dialog">
+        <button class="close-button" aria-label="Close">×</button>
+      </form>
+      <div id="routeDialogContent"></div>
+    </dialog>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
