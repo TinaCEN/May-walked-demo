@@ -25,6 +25,54 @@ const pets = [
   { name: "Rabbit Pop", type: "image", src: "./pet-selected.png" },
 ];
 
+const decorationCatalog = {
+  "pet-blue.png": [
+    { id: "blue-default", name: "Default", price: 0, className: "", note: "Ocean Buddy accessories", isDefault: true },
+    { id: "blue-bubble-cap", name: "Bubble Cap", price: 120, className: "is-bubble-cap", note: "Ocean Buddy accessories" },
+    { id: "blue-shell-pin", name: "Shell Pin", price: 160, className: "is-shell-pin", note: "Ocean Buddy accessories" },
+    { id: "blue-ocean-scarf", name: "Wave Scarf", price: 220, className: "is-ocean-scarf", note: "Ocean Buddy accessories" },
+    { id: "blue-coral-bloom", name: "Coral Bloom", price: 260, className: "is-coral-bloom", note: "Ocean Buddy accessories" },
+    { id: "blue-pearl-crown", name: "Pearl Crown", price: 280, className: "is-pearl-crown", note: "Ocean Buddy accessories" },
+    { id: "blue-daisy-pin", name: "Daisy Pin", price: 180, className: "is-daisy-pin", note: "Ocean Buddy accessories" },
+    { id: "blue-sea-glass", name: "Sea Glass", price: 210, className: "is-sea-glass", note: "Ocean Buddy accessories" },
+  ],
+  "pet-green.png": [
+    { id: "green-leaf-hat", name: "Leaf Hat", price: 120, className: "is-leaf-hat", note: "Forest decorations for this partner" },
+    { id: "green-berry-bow", name: "Berry Bow", price: 170, className: "is-berry-bow", note: "Forest decorations for this partner" },
+    { id: "green-star-charm", name: "Moss Star", price: 240, className: "is-star-charm", note: "Forest decorations for this partner" },
+  ],
+  "pet-yellow.png": [
+    { id: "yellow-sun-crown", name: "Sun Crown", price: 140, className: "is-sun-crown", note: "Sunny decorations for this partner" },
+    { id: "yellow-star-charm", name: "Star Charm", price: 210, className: "is-star-charm", note: "Sunny decorations for this partner" },
+    { id: "yellow-berry-bow", name: "Pink Bow", price: 190, className: "is-berry-bow", note: "Sunny decorations for this partner" },
+  ],
+  "pet-orange.png": [
+    { id: "orange-sun-crown", name: "Trail Crown", price: 130, className: "is-sun-crown", note: "Trail decorations for this partner" },
+    { id: "orange-star-charm", name: "Map Star", price: 190, className: "is-star-charm", note: "Trail decorations for this partner" },
+    { id: "orange-leaf-hat", name: "Tiny Leaf", price: 210, className: "is-leaf-hat", note: "Trail decorations for this partner" },
+  ],
+  "pet-purple.png": [
+    { id: "purple-star-charm", name: "Moon Star", price: 120, className: "is-star-charm", note: "Night decorations for this partner" },
+    { id: "purple-bubble-cap", name: "Dream Cap", price: 190, className: "is-bubble-cap", note: "Night decorations for this partner" },
+    { id: "purple-berry-bow", name: "Violet Bow", price: 220, className: "is-berry-bow", note: "Night decorations for this partner" },
+  ],
+  "pet-pink.png": [
+    { id: "pink-berry-bow", name: "Heart Bow", price: 130, className: "is-berry-bow", note: "Sweet decorations for this partner" },
+    { id: "pink-star-charm", name: "Sugar Star", price: 190, className: "is-star-charm", note: "Sweet decorations for this partner" },
+    { id: "pink-shell-pin", name: "Shell Clip", price: 240, className: "is-shell-pin", note: "Sweet decorations for this partner" },
+  ],
+  "pet-selected.png": [
+    { id: "rabbit-berry-bow", name: "Bunny Bow", price: 130, className: "is-berry-bow", note: "Bunny decorations for this partner" },
+    { id: "rabbit-leaf-hat", name: "Clover Hat", price: 180, className: "is-leaf-hat", note: "Bunny decorations for this partner" },
+    { id: "rabbit-star-charm", name: "Jump Star", price: 230, className: "is-star-charm", note: "Bunny decorations for this partner" },
+  ],
+  default: [
+    { id: "default-star-charm", name: "Star Charm", price: 120, className: "is-star-charm", note: "Special decorations for this partner" },
+    { id: "default-berry-bow", name: "Berry Bow", price: 160, className: "is-berry-bow", note: "Special decorations for this partner" },
+    { id: "default-sun-crown", name: "Tiny Crown", price: 230, className: "is-sun-crown", note: "Special decorations for this partner" },
+  ],
+};
+
 const dashboardBackgrounds = [
   { src: "./sea-background.png", weight: 0.65 },
   { src: "./sky-background.png", weight: 0.25 },
@@ -43,6 +91,198 @@ const checkpoints = [
     },
     distanceRequired: 80,
     image: "./yuen-checkpoint-1-hero.png",
+    unlockIndex: 0,
+    heroVariant: "route-one",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "yuen-route-2",
+    title: "Yuen Chau Kok Park Route 2",
+    lat: 22.3827,
+    lng: 114.2049,
+    unlockItem: {
+      name: "Mysterious items B",
+      image: "./yuen-walk-item-b.png",
+    },
+    distanceRequired: 80,
+    image: "./yuen-checkpoint-2-hero.png",
+    unlockIndex: 1,
+    heroVariant: "route-two",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "yuen-route-3",
+    title: "Yuen Chau Kok Park Route 3",
+    lat: 22.3833,
+    lng: 114.2056,
+    unlockItem: {
+      name: "Mysterious items C",
+      image: "./yuen-walk-item-c.png",
+    },
+    distanceRequired: 80,
+    image: "./yuen-checkpoint-3-hero.png",
+    unlockIndex: 2,
+    heroVariant: "route-three",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "yuen-route-4",
+    title: "Yuen Chau Kok Park Route 4",
+    lat: 22.384,
+    lng: 114.2062,
+    unlockItem: {
+      name: "Mysterious items D",
+      image: "./yuen-walk-item-d.png",
+    },
+    distanceRequired: 80,
+    image: "./yuen-checkpoint-4-hero.png",
+    unlockIndex: 3,
+    heroVariant: "route-four",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "yuen-route-5",
+    title: "Yuen Chau Kok Park Route 5",
+    lat: 22.3844,
+    lng: 114.2068,
+    unlockItem: {
+      name: "Mysterious items D",
+      image: "./yuen-walk-item-d.png",
+    },
+    distanceRequired: 80,
+    image: "./yuen-checkpoint-5-hero.png",
+    unlockIndex: 3,
+    heroVariant: "route-five",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "yuen-route-6",
+    title: "Yuen Chau Kok Park Route 6",
+    lat: 22.3848,
+    lng: 114.2074,
+    unlockItem: {
+      name: "Mysterious items D",
+      image: "./yuen-walk-item-d.png",
+    },
+    distanceRequired: 80,
+    image: "./yuen-checkpoint-6-hero.png",
+    unlockIndex: 3,
+    heroVariant: "route-six",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "yuen-route-7",
+    title: "Yuen Chau Kok Park Route 7",
+    lat: 22.3852,
+    lng: 114.208,
+    unlockItem: {
+      name: "Mysterious items D",
+      image: "./yuen-walk-item-d.png",
+    },
+    distanceRequired: 80,
+    image: "./yuen-checkpoint-7-hero.png",
+    unlockIndex: 3,
+    heroVariant: "route-seven",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "yuen-route-8",
+    title: "Yuen Chau Kok Park Route 8",
+    lat: 22.3856,
+    lng: 114.2086,
+    unlockItem: {
+      name: "Mysterious items D",
+      image: "./yuen-walk-item-d.png",
+    },
+    distanceRequired: 80,
+    image: "./yuen-checkpoint-8-hero.png",
+    unlockIndex: 3,
+    heroVariant: "route-eight",
+    completed: false,
+    photo: null,
+  },
+];
+
+const hungMuiKukCheckpoints = [
+  {
+    id: "hung-stone-trail",
+    title: "Hung Mui Kuk Route 1",
+    lat: 22.3748,
+    lng: 114.1921,
+    unlockItem: {
+      name: "Mysterious items A",
+      image: "./hung-walk-item-a.png",
+    },
+    distanceRequired: 80,
+    image: "./hung-route-1-thumb.png",
+    thumb: "./hung-route-1-thumb.png",
+    cameraLabel: "Hung Mui Kuk Barbecue Area",
+    unlockIndex: 0,
+    heroVariant: "hung-one",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "hung-forest-turn",
+    title: "Hung Mui Kuk Route 2",
+    lat: 22.3761,
+    lng: 114.1908,
+    unlockItem: {
+      name: "Mysterious items B",
+      image: "./hung-walk-item-b.png",
+    },
+    distanceRequired: 80,
+    image: "./hung-checkpoint-2-hero.png",
+    thumb: "./hung-route-2-thumb.png",
+    walkDistance: "1.6km",
+    cameraLabel: "Hung Mui Kuk Barbecue Area",
+    unlockIndex: 1,
+    heroVariant: "hung-two",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "hung-hillside-view",
+    title: "Hung Mui Kuk Route 3",
+    lat: 22.3773,
+    lng: 114.1896,
+    unlockItem: {
+      name: "Mysterious items C",
+      image: "./hung-walk-item-c.png",
+    },
+    distanceRequired: 80,
+    image: "./hung-route-3-thumb.png",
+    thumb: "./hung-route-3-thumb.png",
+    walkDistance: "1.6km",
+    cameraLabel: "Hung Mui Kuk Barbecue Area",
+    unlockIndex: 2,
+    heroVariant: "hung-three",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "hung-trail-exit",
+    title: "Hung Mui Kuk Route 4",
+    lat: 22.3784,
+    lng: 114.1889,
+    unlockItem: {
+      name: "Mysterious items D",
+      image: "./hung-walk-item-d.png",
+    },
+    distanceRequired: 80,
+    image: "./hung-checkpoint-4-hero.png",
+    thumb: "./hung-route-4-thumb.png",
+    walkDistance: "1.6km",
+    cameraLabel: "Hung Mui Kuk Barbecue Area",
+    unlockIndex: 3,
+    heroVariant: "hung-four",
     completed: false,
     photo: null,
   },
@@ -91,6 +331,8 @@ let totalSteps = 0;
 let translated = false;
 let selectedGoal = 8000;
 let selectedPet = pets[0];
+let ownedDecorations = new Set(Object.values(decorationCatalog).flat().map((decoration) => decoration.id));
+let equippedDecorations = {};
 let hatchTaps = 0;
 let isPetSpinning = false;
 let dashboardExp = 40;
@@ -101,7 +343,11 @@ let createRouteMarkers = [];
 let createdRoutes = [];
 let customRoutePoints = [];
 let activeRouteDetailKey = "yuen";
+let activeRouteWalkKey = "yuen";
 let activeCheckpoint = checkpoints[0];
+let socialReturnScreen = "dashboard";
+let selfieStream = null;
+let selfiePhoto = null;
 let cameraStream = null;
 let currentCheckinPosition = null;
 let currentCheckpointDistance = null;
@@ -116,9 +362,15 @@ let currentHongKongWeather = {
 const titleScreen = document.querySelector("#titleScreen");
 const profileScreen = document.querySelector("#profileScreen");
 const bodyScreen = document.querySelector("#bodyScreen");
+const selfieScreen = document.querySelector("#selfieScreen");
 const hatchScreen = document.querySelector("#hatchScreen");
 const partnerScreen = document.querySelector("#partnerScreen");
 const dashboardScreen = document.querySelector("#dashboardScreen");
+const schoolLeaderboardScreen = document.querySelector("#schoolLeaderboardScreen");
+const friendsListScreen = document.querySelector("#friendsListScreen");
+const friendFeedScreen = document.querySelector("#friendFeedScreen");
+const myFeedScreen = document.querySelector("#myFeedScreen");
+const newPostScreen = document.querySelector("#newPostScreen");
 const walkScreen = document.querySelector("#walkScreen");
 const createRouteScreen = document.querySelector("#createRouteScreen");
 const literatureScreen = document.querySelector("#literatureScreen");
@@ -139,6 +391,14 @@ const nameInput = document.querySelector("#nameInput");
 const ageInput = document.querySelector("#ageInput");
 const heightInput = document.querySelector("#heightInput");
 const weightInput = document.querySelector("#weightInput");
+const selfiePreview = document.querySelector("#selfiePreview");
+const selfieCanvas = document.querySelector("#selfieCanvas");
+const selfieCapturedImage = document.querySelector("#selfieCapturedImage");
+const selfieEmptyState = document.querySelector("#selfieEmptyState");
+const selfieCaptureButton = document.querySelector("#selfieCaptureButton");
+const selfieStatusText = document.querySelector("#selfieStatusText");
+const selfieBackButton = document.querySelector("#selfieBackButton");
+const selfieNextButton = document.querySelector("#selfieNextButton");
 const walkerLabel = document.querySelector("#walkerLabel");
 const goalLabel = document.querySelector("#goalLabel");
 const partnerBackButton = document.querySelector("#partnerBackButton");
@@ -156,11 +416,53 @@ const dashboardExpBar = document.querySelector("#dashboardExpBar");
 const dashboardExpText = document.querySelector("#dashboardExpText");
 const dashboardPetImage = document.querySelector("#dashboardPetImage");
 const dashboardPetStage = document.querySelector(".dashboard-pet-stage");
+const dashboardPetDecoration = document.querySelector("#dashboardPetDecoration");
 const dashboardStepCount = document.querySelector("#dashboardStepCount");
 const dashboardFindButton = document.querySelector("#dashboardFindButton");
+const dashboardShopButton = document.querySelector("#dashboardShopButton");
+const dashboardSocialButton = document.querySelector("#dashboardSocialButton");
+const dashboardSchoolButton = document.querySelector("#dashboardSchoolButton");
 const dashboardStepButton = document.querySelector("#dashboardStepButton");
 const dashboardSideToggle = document.querySelector("#dashboardSideToggle");
 const dashboardSideNav = document.querySelector(".dashboard-side-nav");
+const shopDecorationPanel = document.querySelector("#shopDecorationPanel");
+const shopDecorationCloseButton = document.querySelector("#shopDecorationCloseButton");
+const shopDecorationGrid = document.querySelector("#shopDecorationGrid");
+const shopPreviewPetImage = document.querySelector("#shopPreviewPetImage");
+const shopPreviewDecoration = document.querySelector("#shopPreviewDecoration");
+const shopPetTitle = document.querySelector("#shopPetTitle");
+const shopPetSubtitle = document.querySelector("#shopPetSubtitle");
+const schoolRankBackButton = document.querySelector("#schoolRankBackButton");
+const schoolRankActionButton = document.querySelector("#schoolRankActionButton");
+const friendsListBackButton = document.querySelector("#friendsListBackButton");
+const friendFeedBackButton = document.querySelector("#friendFeedBackButton");
+const friendFeedAddPostButton = document.querySelector("#friendFeedAddPostButton");
+const friendsProfileButton = document.querySelector("#friendsProfileButton");
+const friendsFeedProfileButton = document.querySelector("#friendsFeedProfileButton");
+const myFeedBackButton = document.querySelector("#myFeedBackButton");
+const newPostBackButton = document.querySelector("#newPostBackButton");
+const newPostForm = document.querySelector("#newPostForm");
+const newPostText = document.querySelector("#newPostText");
+const newPostCount = document.querySelector("#newPostCount");
+const newPostPhotoInput = document.querySelector("#newPostPhotoInput");
+const newPostPreviewGrid = document.querySelector("#newPostPreviewGrid");
+const newPostLocationButton = document.querySelector("#newPostLocationButton");
+const newPostLocationText = document.querySelector("#newPostLocationText");
+const friendsNavButtons = document.querySelectorAll(".friends-bottom-nav [data-friends-tab]");
+const schoolRankUserPetImage = document.querySelector("#schoolRankUserPetImage");
+const schoolRankUserName = document.querySelector("#schoolRankUserName");
+const schoolRankUserClass = document.querySelector("#schoolRankUserClass");
+const schoolRankUserSteps = document.querySelector("#schoolRankUserSteps");
+const schoolRankCurrentPetImage = document.querySelector("#schoolRankCurrentPetImage");
+const schoolRankCurrentName = document.querySelector("#schoolRankCurrentName");
+const friendsProfilePetImage = document.querySelector("#friendsProfilePetImage");
+const friendsProfileName = document.querySelector("#friendsProfileName");
+const friendsFeedProfilePetImage = document.querySelector("#friendsFeedProfilePetImage");
+const friendsFeedProfileName = document.querySelector("#friendsFeedProfileName");
+const myFeedProfilePetImage = document.querySelector("#myFeedProfilePetImage");
+const myFeedProfileName = document.querySelector("#myFeedProfileName");
+const newPostProfilePetImage = document.querySelector("#newPostProfilePetImage");
+const newPostProfileName = document.querySelector("#newPostProfileName");
 const cardsCollectionCount = document.querySelector("#cardsCollectionCount");
 const translateCardButtons = document.querySelectorAll(".translate-card-button");
 const routeList = document.querySelector("#routeList");
@@ -205,20 +507,44 @@ const routeDetailCloseButton = document.querySelector("#routeDetailCloseButton")
 const routeRewardCards = document.querySelectorAll(".mini-reward-card");
 const letsWalkButton = document.querySelector("#letsWalkButton");
 const routeWalkBackButton = document.querySelector("#routeWalkBackButton");
+const routeWalkMap = document.querySelector("#routeWalkMap");
+const routeWalkMapImage = document.querySelector("#routeWalkMapImage");
+const routeWalkName = document.querySelector("#routeWalkName");
+const routeWalkDistanceValue = document.querySelector("#routeWalkDistanceValue");
 const yuenCheckpointOneButton = document.querySelector("#yuenCheckpointOneButton");
+const yuenCheckpointTwoButton = document.querySelector("#yuenCheckpointTwoButton");
+const yuenCheckpointThreeButton = document.querySelector("#yuenCheckpointThreeButton");
+const yuenCheckpointFourButton = document.querySelector("#yuenCheckpointFourButton");
+const yuenCheckpointFiveButton = document.querySelector("#yuenCheckpointFiveButton");
+const yuenCheckpointSixButton = document.querySelector("#yuenCheckpointSixButton");
+const yuenCheckpointSevenButton = document.querySelector("#yuenCheckpointSevenButton");
+const yuenCheckpointEightButton = document.querySelector("#yuenCheckpointEightButton");
+const routePhotoButtons = document.querySelectorAll("[data-checkpoint-slot]");
+const routeUnlockCards = document.querySelectorAll("[data-unlock-slot]");
+const checkpointUnlockCards = document.querySelectorAll(".checkpoint-collection .unlock-card");
 const checkpointBackButton = document.querySelector("#checkpointBackButton");
 const checkpointArrivedButton = document.querySelector("#checkpointArrivedButton");
+const checkpointHeroImage = document.querySelector("#checkpointHeroImage");
+const checkpointDistanceValue = document.querySelector("#checkpointDistanceValue");
 const cameraBackButton = document.querySelector("#cameraBackButton");
 const cameraCheckpointTitle = document.querySelector("#cameraCheckpointTitle");
 const cameraCheckpointMeta = document.querySelector("#cameraCheckpointMeta");
+const cameraPhotoLabel = document.querySelector("#cameraPhotoLabel");
+const cameraResultPhotoLabel = document.querySelector("#cameraResultPhotoLabel");
+const cameraLocationName = document.querySelector("#cameraLocationName");
+const cameraRequiredDistance = document.querySelector("#cameraRequiredDistance");
 const cameraPreview = document.querySelector("#cameraPreview");
 const cameraCanvas = document.querySelector("#cameraCanvas");
 const capturedPhotoPreview = document.querySelector("#capturedPhotoPreview");
 const cameraEmptyState = document.querySelector("#cameraEmptyState");
+const cameraStatusCard = document.querySelector(".camera-status-card");
 const cameraStatusText = document.querySelector("#cameraStatusText");
 const cameraDistanceText = document.querySelector("#cameraDistanceText");
 const retryLocationButton = document.querySelector("#retryLocationButton");
 const captureCheckinButton = document.querySelector("#captureCheckinButton");
+const cameraRetakeButton = document.querySelector("#cameraRetakeButton");
+const cameraRetakeButtonInline = document.querySelector("#cameraRetakeButtonInline");
+const cameraDoneButton = document.querySelector("#cameraDoneButton");
 const rewardModal = document.querySelector("#rewardModal");
 const rewardTitle = document.querySelector("#rewardTitle");
 const rewardItemImage = document.querySelector("#rewardItemImage");
@@ -244,9 +570,15 @@ function showScreen(screen) {
   titleScreen.classList.toggle("is-active", screen === "title");
   profileScreen.classList.toggle("is-active", screen === "profile");
   bodyScreen.classList.toggle("is-active", screen === "body");
+  selfieScreen.classList.toggle("is-active", screen === "selfie");
   hatchScreen.classList.toggle("is-active", screen === "hatch");
   partnerScreen.classList.toggle("is-active", screen === "partner");
   dashboardScreen.classList.toggle("is-active", screen === "dashboard");
+  schoolLeaderboardScreen.classList.toggle("is-active", screen === "school-rank");
+  friendsListScreen.classList.toggle("is-active", screen === "friends-list");
+  friendFeedScreen.classList.toggle("is-active", screen === "friend-feed");
+  myFeedScreen.classList.toggle("is-active", screen === "my-feed");
+  newPostScreen.classList.toggle("is-active", screen === "new-post");
   walkScreen.classList.toggle("is-active", screen === "walk");
   createRouteScreen.classList.toggle("is-active", screen === "create-route");
   literatureScreen.classList.toggle("is-active", screen === "literature");
@@ -258,6 +590,9 @@ function showScreen(screen) {
   if (screen !== "camera-checkin") {
     stopCameraCheckin();
   }
+  if (screen !== "selfie") {
+    stopSelfieCamera();
+  }
 
   if (screen === "create-route") {
     setTimeout(initializeCreateRouteMap, 80);
@@ -265,6 +600,23 @@ function showScreen(screen) {
   if (screen === "camera-checkin") {
     startCameraCheckin(activeCheckpoint);
   }
+  if (screen === "selfie") {
+    startSelfieCamera();
+  }
+  if (screen === "school-rank" || screen === "friends-list" || screen === "friend-feed" || screen === "my-feed" || screen === "new-post") {
+    updateSchoolLeaderboard();
+  }
+  if (screen === "friends-list" || screen === "friend-feed") {
+    updateFriendsNavActive(screen === "friend-feed" ? "feed" : "list");
+  }
+}
+
+function updateFriendsNavActive(activeTab) {
+  friendsNavButtons.forEach((navButton) => {
+    const isActive = navButton.dataset.friendsTab === activeTab;
+    navButton.classList.toggle("is-active", isActive);
+    navButton.setAttribute("aria-pressed", isActive ? "true" : "false");
+  });
 }
 
 function updateProgress() {
@@ -275,6 +627,54 @@ function updateProgress() {
     progressBar.style.width = `${Math.min(totalSteps / selectedGoal, 1) * 100}%`;
   }
   dashboardStepCount.textContent = Math.max(totalSteps, 1922).toLocaleString("zh-Hans");
+}
+
+function updateSchoolLeaderboard() {
+  const displayName = (nameInput.value.trim() || "EMMA").toUpperCase();
+  const petImage = selectedPet?.src || "./pet-yellow.png";
+  const petName = selectedPet?.name || "Selected pet";
+  schoolRankUserPetImage.src = petImage;
+  schoolRankUserPetImage.alt = petName;
+  schoolRankCurrentPetImage.src = petImage;
+  schoolRankCurrentPetImage.alt = petName;
+  friendsProfilePetImage.src = petImage;
+  friendsProfilePetImage.alt = petName;
+  friendsFeedProfilePetImage.src = petImage;
+  friendsFeedProfilePetImage.alt = petName;
+  myFeedProfilePetImage.src = petImage;
+  myFeedProfilePetImage.alt = petName;
+  newPostProfilePetImage.src = petImage;
+  newPostProfilePetImage.alt = petName;
+  schoolRankUserName.textContent = displayName;
+  schoolRankCurrentName.textContent = displayName;
+  friendsProfileName.textContent = displayName;
+  friendsFeedProfileName.textContent = displayName;
+  myFeedProfileName.textContent = displayName;
+  newPostProfileName.textContent = displayName;
+  schoolRankUserClass.textContent = "LEVEL 12 Guardians";
+  schoolRankUserSteps.textContent = "12,450";
+}
+
+function updateNewPostCount() {
+  newPostCount.textContent = `${newPostText.value.length}/280`;
+}
+
+function renderNewPostPreviews(files) {
+  newPostPreviewGrid.innerHTML = "";
+  Array.from(files).slice(0, 6).forEach((file) => {
+    const preview = document.createElement("img");
+    preview.src = URL.createObjectURL(file);
+    preview.alt = file.name;
+    preview.onload = () => URL.revokeObjectURL(preview.src);
+    newPostPreviewGrid.appendChild(preview);
+  });
+}
+
+function resetNewPostForm() {
+  newPostForm.reset();
+  newPostPreviewGrid.innerHTML = "";
+  newPostLocationText.textContent = "Add location...";
+  updateNewPostCount();
 }
 
 function renderPet(pet) {
@@ -339,6 +739,72 @@ function resetHatch() {
   hatchProgressBar.style.width = "0%";
   hatchCounter.textContent = "0/3";
   hatchTip.textContent = "Tap the egg to meet your companion!";
+}
+
+async function startSelfieCamera() {
+  if (!selfiePreview || !selfieEmptyState) return;
+  selfieStatusText.textContent = "Opening selfie camera...";
+  selfieEmptyState.hidden = false;
+  selfieCapturedImage.hidden = true;
+  selfiePreview.hidden = false;
+  selfieCaptureButton.disabled = false;
+
+  if (!navigator.mediaDevices?.getUserMedia) {
+    selfieStatusText.textContent = "Camera is not available in this browser.";
+    selfieEmptyState.textContent = "Camera permission needed";
+    selfiePreview.hidden = true;
+    return;
+  }
+
+  try {
+    if (!selfieStream) {
+      selfieStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "user" },
+        audio: false,
+      });
+    }
+    selfiePreview.srcObject = selfieStream;
+    await selfiePreview.play();
+    selfieEmptyState.hidden = true;
+    selfieStatusText.textContent = selfiePhoto ? "Selfie captured. You can retake it or continue." : "Camera ready. Capture your selfie.";
+  } catch (error) {
+    selfieStatusText.textContent = "Could not open selfie camera. Please allow camera permission and retry.";
+    selfieEmptyState.textContent = "Camera permission needed";
+    selfiePreview.hidden = true;
+  }
+}
+
+function stopSelfieCamera() {
+  if (!selfieStream) return;
+  selfieStream.getTracks().forEach((track) => track.stop());
+  selfieStream = null;
+  if (selfiePreview) {
+    selfiePreview.srcObject = null;
+  }
+}
+
+function captureSelfie() {
+  if (!selfieStream || !selfiePreview.srcObject) {
+    selfieStatusText.textContent = "Camera is not ready. Please allow camera permission and retry.";
+    startSelfieCamera();
+    return;
+  }
+
+  const width = selfiePreview.videoWidth || 640;
+  const height = selfiePreview.videoHeight || 480;
+  selfieCanvas.width = width;
+  selfieCanvas.height = height;
+  const context = selfieCanvas.getContext("2d");
+  context.translate(width, 0);
+  context.scale(-1, 1);
+  context.drawImage(selfiePreview, 0, 0, width, height);
+
+  selfiePhoto = selfieCanvas.toDataURL("image/png");
+  selfieCapturedImage.src = selfiePhoto;
+  selfieCapturedImage.hidden = false;
+  selfiePreview.hidden = true;
+  selfieEmptyState.hidden = true;
+  selfieStatusText.textContent = "Selfie captured. Tap Skip to hatch your partner.";
 }
 
 function updateHatch() {
@@ -549,27 +1015,45 @@ function getDistanceMeters(from, to) {
   return earthRadius * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
+function setCameraStatus(message, distance = null, tone = "info") {
+  cameraStatusText.textContent = message;
+  if (distance !== null) {
+    cameraDistanceText.textContent = distance;
+  }
+  cameraStatusCard.classList.toggle("is-alert", tone === "alert");
+  cameraStatusCard.classList.toggle("is-ready", tone === "ready");
+  if (tone === "alert") {
+    cameraStatusCard.classList.remove("is-floating");
+    void cameraStatusCard.offsetWidth;
+    cameraStatusCard.classList.add("is-floating");
+  } else {
+    cameraStatusCard.classList.remove("is-floating");
+  }
+}
+
 function updateCameraDistance(position) {
   currentCheckinPosition = {
     lat: position.coords.latitude,
     lng: position.coords.longitude,
   };
   currentCheckpointDistance = getDistanceMeters(currentCheckinPosition, activeCheckpoint);
-  cameraDistanceText.textContent = `Distance: ${Math.round(currentCheckpointDistance)}m / ${activeCheckpoint.distanceRequired}m`;
-  cameraStatusText.textContent = currentCheckpointDistance <= activeCheckpoint.distanceRequired
-    ? "You are within range. Take a photo to check in!"
-    : "You are too far from this checkpoint. Move closer and retry.";
+  setCameraStatus(
+    currentCheckpointDistance <= activeCheckpoint.distanceRequired
+      ? "You are within range. Take a photo to check in!"
+      : "Too far away. Move closer and retry.",
+    `Distance: ${Math.round(currentCheckpointDistance)}m / ${activeCheckpoint.distanceRequired}m`,
+    currentCheckpointDistance <= activeCheckpoint.distanceRequired ? "ready" : "alert",
+  );
 }
 
 function requestCheckpointLocation() {
   currentCheckinPosition = null;
   currentCheckpointDistance = null;
-  cameraDistanceText.textContent = "Distance: --";
-  cameraStatusText.textContent = "Requesting your current location once...";
+  setCameraStatus("Requesting your current location once...", "Distance: --");
   captureCheckinButton.disabled = true;
 
   if (!navigator.geolocation) {
-    cameraStatusText.textContent = "GPS is not available in this browser.";
+    setCameraStatus("GPS is not available in this browser.", "Distance: --", "alert");
     return;
   }
 
@@ -579,7 +1063,7 @@ function requestCheckpointLocation() {
       captureCheckinButton.disabled = false;
     },
     () => {
-      cameraStatusText.textContent = "Could not get GPS location. Please allow location permission and retry.";
+      setCameraStatus("GPS is missing. Please allow location and retry.", "Distance: --", "alert");
       captureCheckinButton.disabled = false;
     },
     { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 },
@@ -588,9 +1072,15 @@ function requestCheckpointLocation() {
 
 async function startCameraCheckin(checkpoint) {
   activeCheckpoint = checkpoint;
-  cameraCheckpointTitle.textContent = checkpoint.title;
-  cameraCheckpointMeta.textContent = `GPS check within ${checkpoint.distanceRequired}m`;
-  cameraStatusText.textContent = "Requesting camera and location once.";
+  const placeName = checkpoint.cameraLabel || checkpoint.title;
+  cameraCheckinScreen.classList.remove("is-captured");
+  cameraCheckpointTitle.textContent = "Nice shot!";
+  cameraCheckpointMeta.textContent = "Photo saved to your album";
+  cameraPhotoLabel.textContent = placeName.toUpperCase();
+  cameraResultPhotoLabel.textContent = placeName.toUpperCase();
+  cameraLocationName.textContent = placeName;
+  cameraRequiredDistance.textContent = `${checkpoint.distanceRequired} m`;
+  setCameraStatus("Requesting camera and location once.", "Distance: --");
   cameraEmptyState.hidden = false;
   cameraEmptyState.textContent = "Opening camera...";
   capturedPhotoPreview.hidden = true;
@@ -612,7 +1102,7 @@ async function startCameraCheckin(checkpoint) {
     await cameraPreview.play();
     cameraEmptyState.hidden = true;
   } catch (error) {
-    cameraStatusText.textContent = "Could not open camera. Please allow camera permission and retry.";
+    setCameraStatus("Camera is missing. Please allow camera and retry.", "Distance: --", "alert");
     cameraEmptyState.textContent = "Camera unavailable";
     cameraEmptyState.hidden = false;
   }
@@ -629,17 +1119,21 @@ function stopCameraCheckin() {
 
 function captureCheckpointPhoto() {
   if (!currentCheckinPosition) {
-    cameraStatusText.textContent = "GPS is still missing. Please retry GPS before taking a photo.";
+    setCameraStatus("GPS is missing. Please retry GPS before taking a photo.", "Distance: --", "alert");
     return;
   }
 
   if (currentCheckpointDistance > activeCheckpoint.distanceRequired) {
-    cameraStatusText.textContent = `Too far away: ${Math.round(currentCheckpointDistance)}m. You need to be within ${activeCheckpoint.distanceRequired}m.`;
+    setCameraStatus(
+      `Too far away: ${Math.round(currentCheckpointDistance)}m. Move closer and retry.`,
+      `Distance: ${Math.round(currentCheckpointDistance)}m / ${activeCheckpoint.distanceRequired}m`,
+      "alert",
+    );
     return;
   }
 
   if (!cameraStream || !cameraPreview.srcObject) {
-    cameraStatusText.textContent = "Camera is not ready. Please allow camera permission and retry.";
+    setCameraStatus("Camera is not ready. Please allow camera and retry.", null, "alert");
     return;
   }
 
@@ -655,9 +1149,27 @@ function captureCheckpointPhoto() {
   capturedPhotoPreview.src = activeCheckpoint.photo;
   capturedPhotoPreview.hidden = false;
   cameraPreview.hidden = true;
-  cameraStatusText.textContent = "Check-in completed. Item unlocked!";
-  document.querySelector(".checkpoint-collection .unlock-card")?.classList.add("is-completed");
-  showRewardModal(activeCheckpoint);
+  setCameraStatus("Check-in completed. Item unlocked!", null, "ready");
+  cameraCheckinScreen.classList.add("is-captured");
+  stopCameraCheckin();
+  markCheckpointCompleted(activeCheckpoint);
+}
+
+function openCheckpoint(checkpoint) {
+  activeCheckpoint = checkpoint;
+  const config = routeWalkConfigs[activeRouteWalkKey] || routeWalkConfigs.yuen;
+  checkpointScreen.dataset.checkpoint = checkpoint.heroVariant || checkpoint.id;
+  checkpointHeroImage.src = checkpoint.image;
+  checkpointHeroImage.alt = checkpoint.title;
+  checkpointDistanceValue.textContent = checkpoint.walkDistance || config.distance;
+  renderCheckpointItems();
+  showScreen("checkpoint");
+}
+
+function markCheckpointCompleted(checkpoint) {
+  const index = checkpoint.unlockIndex ?? 0;
+  document.querySelectorAll(".checkpoint-collection .unlock-card")[index]?.classList.add("is-completed");
+  document.querySelectorAll(".route-walk-collection .unlock-card")[index]?.classList.add("is-completed");
 }
 
 function showRewardModal(checkpoint) {
@@ -667,6 +1179,7 @@ function showRewardModal(checkpoint) {
     name: reward.name,
     image: reward.image,
   };
+  rewardModal.dataset.reward = reward.id;
   rewardTitle.textContent = reward.heading;
   rewardItemImage.src = reward.image;
   rewardItemImage.alt = reward.name;
@@ -736,6 +1249,20 @@ const routeDetails = {
       { number: "#00001", image: "./route-card-tao-kingfisher.png", name: "Common Kingfisher", stars: "★★" },
       { number: "#00002", image: "./route-card-tao-munia.png", name: "White-rumped Munia", stars: "★★" },
       { number: "#00003", image: "./route-card-tao-lantana.png", name: "Trailing Lantana", stars: "★" },
+    ],
+  },
+  "The Hong Kong Polytechnic University": {
+    key: "polyu",
+    title: "The Hong Kong Polytechnic University",
+    difficulty: "EASY",
+    location: "Hung Hom, Kowloon",
+    hero: "./route-detail-polyu-hero.png",
+    time: "25-35",
+    length: "~1",
+    rewards: [
+      { number: "#00003", image: "./route-card-polyu-scaly-munia.png", name: "Scaly-breasted Munia", stars: "★★" },
+      { number: "#00002", image: "./route-card-polyu-xiao-hong.png", name: "Xiao Hong", stars: "★★" },
+      { number: "#00008", image: "./route-card-polyu-white-rumped-munia.png", name: "White-rumped Munia", stars: "★★" },
     ],
   },
   "HK University – Main Building": {
@@ -824,16 +1351,112 @@ function closeRouteDetail() {
   routeDetailOverlay.setAttribute("aria-hidden", "true");
 }
 
+const routeWalkConfigs = {
+  yuen: {
+    backScreen: "nature",
+    name: "Yuen chau Kok Park",
+    distance: "1.2km",
+    map: "./yuen-walk-map-base.png",
+    checkpoints: checkpoints.map((checkpoint, index) => ({
+      ...checkpoint,
+      thumb: `./yuen-checkpoint-${index + 1}-thumb.png`,
+    })),
+    items: [
+      { name: "Mysterious items A", description: "This area was discovered", distance: "120m", image: "./yuen-walk-item-a.png", locked: false },
+      { name: "Mysterious items B", description: "This area was discovered", distance: "350m", image: "./yuen-walk-item-b.png", locked: false },
+      { name: "Mysterious items C", description: "This area was discovered", distance: "580m", image: "./yuen-walk-item-c.png", locked: true },
+      { name: "Mysterious items D", description: "This area was discovered", distance: "720m", image: "./yuen-walk-item-d.png", locked: true },
+    ],
+  },
+  hung: {
+    backScreen: "nature",
+    name: "Hung Mui Kuk",
+    distance: "1.2km",
+    map: "./hung-walk-map-base.png",
+    checkpoints: hungMuiKukCheckpoints,
+    items: [
+      { name: "Mysterious items A", description: "This area was discovered", distance: "120m", image: "./hung-walk-item-a.png", locked: false },
+      { name: "Mysterious items B", description: "This area was discovered", distance: "350m", image: "./hung-walk-item-b.png", locked: false },
+      { name: "Mysterious items C", description: "This area was discovered", distance: "580m", image: "./hung-walk-item-c.png", locked: true },
+      { name: "Mysterious items D", description: "This area was discovered", distance: "720m", image: "./hung-walk-item-d.png", locked: true },
+    ],
+  },
+};
+
+function renderUnlockCards(cards, items, checkpointsForRoute = []) {
+  cards.forEach((card, index) => {
+    const item = items[index];
+    if (!item) {
+      card.hidden = true;
+      return;
+    }
+    const isCompleted = checkpointsForRoute.some((checkpoint) => checkpoint.unlockIndex === index && checkpoint.completed);
+
+    card.hidden = false;
+    card.classList.toggle("is-locked", item.locked);
+    card.classList.toggle("is-completed", isCompleted);
+    card.querySelector(".unlock-lock")?.remove();
+    if (item.locked) {
+      card.insertAdjacentHTML("afterbegin", '<div class="unlock-lock" aria-hidden="true"></div>');
+    }
+    const imageWrap = card.querySelector(".unlock-image");
+    imageWrap.classList.toggle("is-gold", !item.locked);
+    imageWrap.classList.toggle("is-muted", item.locked);
+    imageWrap.querySelector("img").src = item.image;
+    imageWrap.querySelector("img").alt = item.name;
+    card.querySelector("h2").textContent = item.name;
+    card.querySelector("p").textContent = item.description;
+    card.querySelector("strong").innerHTML = `<span aria-hidden="true">♡</span>${item.distance}`;
+  });
+}
+
+function renderCheckpointItems() {
+  const config = routeWalkConfigs[activeRouteWalkKey] || routeWalkConfigs.yuen;
+  renderUnlockCards(checkpointUnlockCards, config.items, config.checkpoints);
+}
+
+function openRouteWalk(routeKey = "yuen") {
+  const config = routeWalkConfigs[routeKey] || routeWalkConfigs.yuen;
+  activeRouteWalkKey = routeKey;
+  routeWalkMap.dataset.route = routeKey;
+  routeWalkMapImage.src = config.map;
+  routeWalkMapImage.alt = config.name;
+  routeWalkName.textContent = config.name;
+  routeWalkDistanceValue.textContent = config.distance;
+
+  routePhotoButtons.forEach((button, index) => {
+    const checkpoint = config.checkpoints[index];
+    button.hidden = !checkpoint;
+    if (!checkpoint) return;
+    const image = button.querySelector("img");
+    image.src = checkpoint.thumb || checkpoint.image;
+    image.alt = checkpoint.title;
+    button.setAttribute("aria-label", `Open checkpoint photo: ${checkpoint.title}`);
+  });
+
+  renderUnlockCards(routeUnlockCards, config.items, config.checkpoints);
+
+  routeWalkTabButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.walkTab === "items"));
+  routeWalkPanels.forEach((panel) => {
+    const isItems = panel.dataset.walkPanel === "items";
+    panel.classList.toggle("is-active", isItems);
+    panel.hidden = !isItems;
+  });
+  showScreen("route-walk");
+}
+
 function renderDashboard() {
   const name = nameInput.value.trim();
   dashboardExp = 40;
   dashboardScreen.classList.remove("is-cards-collapsed");
+  closeShopPanel();
   dashboardSideNav.classList.remove("is-collapsed");
   dashboardSideToggle.setAttribute("aria-label", "Collapse dashboard actions");
   pickDashboardBackground();
   dashboardUserName.textContent = name || "User name";
   dashboardPetImage.src = selectedPet.src;
   dashboardPetImage.alt = selectedPet.name;
+  applyDashboardDecoration();
   cardsCollectionCount.textContent = "6/15";
   translateCardButtons.forEach((button) => {
     button.disabled = false;
@@ -848,6 +1471,88 @@ function updateDashboardExp(delta) {
   dashboardExp = Math.min(dashboardExp + delta, 100);
   dashboardExpBar.style.width = `${dashboardExp}%`;
   dashboardExpText.textContent = `${dashboardExp}/100`;
+}
+
+function getSelectedPetKey() {
+  return (selectedPet?.src || "").split("/").pop() || "default";
+}
+
+function getSelectedDecorationCatalog() {
+  return decorationCatalog[getSelectedPetKey()] || decorationCatalog.default;
+}
+
+function getEquippedDecoration() {
+  const petKey = getSelectedPetKey();
+  const decorationId = equippedDecorations[petKey];
+  return getSelectedDecorationCatalog().find((decoration) => decoration.id === decorationId) || null;
+}
+
+function setDecorationClass(element, decoration) {
+  element.className = decoration?.className ? `dashboard-pet-decoration ${decoration.className}` : "dashboard-pet-decoration";
+}
+
+function applyDashboardDecoration() {
+  setDecorationClass(dashboardPetDecoration, getEquippedDecoration());
+}
+
+function renderShopPanel() {
+  const decorations = getSelectedDecorationCatalog();
+  const equippedDecoration = getEquippedDecoration();
+
+  shopPreviewPetImage.src = selectedPet.src;
+  shopPreviewPetImage.alt = selectedPet.name;
+  shopPetTitle.textContent = selectedPet.name;
+  shopPetSubtitle.textContent = decorations[0]?.note || "Special decorations for this partner";
+  setDecorationClass(shopPreviewDecoration, equippedDecoration);
+
+  shopDecorationGrid.innerHTML = "";
+  decorations.forEach((decoration) => {
+    const isOwned = ownedDecorations.has(decoration.id);
+    const isEquipped = decoration.isDefault ? !equippedDecoration : equippedDecoration?.id === decoration.id;
+    const card = document.createElement("button");
+    card.className = `shop-decoration-card${decoration.isDefault ? " is-default" : ""}${isOwned ? " is-owned" : " is-locked"}${isEquipped ? " is-equipped" : ""}`;
+    card.type = "button";
+    card.dataset.decorationId = decoration.id;
+    card.innerHTML = `
+      <span class="shop-decoration-icon ${decoration.className || "is-default-skin"}" aria-hidden="true"></span>
+      <strong>${decoration.name}</strong>
+      <em>${decoration.isDefault ? "Original skin" : `${decoration.price} steps`}</em>
+      <span class="shop-decoration-action">${isEquipped ? "Selected" : decoration.isDefault ? "Default" : "Wear"}</span>
+    `;
+    shopDecorationGrid.appendChild(card);
+  });
+}
+
+function openShopPanel() {
+  renderShopPanel();
+  dashboardScreen.classList.add("is-shop-open");
+  shopDecorationPanel.setAttribute("aria-hidden", "false");
+}
+
+function closeShopPanel() {
+  dashboardScreen.classList.remove("is-shop-open");
+  shopDecorationPanel.setAttribute("aria-hidden", "true");
+}
+
+function openSocialHub(returnScreen = "dashboard") {
+  socialReturnScreen = returnScreen;
+  closeShopPanel();
+  showScreen("friends-list");
+}
+
+function selectDecoration(decorationId) {
+  const decoration = getSelectedDecorationCatalog().find((item) => item.id === decorationId);
+  if (!decoration) return;
+
+  const petKey = getSelectedPetKey();
+  if (decoration.isDefault) {
+    delete equippedDecorations[petKey];
+  } else {
+    equippedDecorations[petKey] = decoration.id;
+  }
+
+  applyDashboardDecoration();
+  renderShopPanel();
 }
 
 function pickDashboardBackground() {
@@ -1039,6 +1744,14 @@ bodyForm.addEventListener("submit", (event) => {
   selectedGoal = goal;
   partnerName.textContent = name || "User Name";
   pickRandomPet();
+  selfiePhoto = null;
+  selfieCapturedImage.removeAttribute("src");
+  showScreen("selfie");
+});
+
+selfieBackButton.addEventListener("click", () => showScreen("body"));
+selfieCaptureButton.addEventListener("click", captureSelfie);
+selfieNextButton.addEventListener("click", () => {
   resetHatch();
   showScreen("hatch");
 });
@@ -1061,7 +1774,73 @@ partnerCreateButton.addEventListener("click", () => {
 
 backButton.addEventListener("click", () => showScreen("dashboard"));
 dashboardFindButton.addEventListener("click", () => showScreen("walk"));
+dashboardShopButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  if (dashboardScreen.classList.contains("is-shop-open")) {
+    closeShopPanel();
+  } else {
+    openShopPanel();
+  }
+});
+shopDecorationCloseButton.addEventListener("click", closeShopPanel);
+shopDecorationGrid.addEventListener("click", (event) => {
+  const card = event.target.closest(".shop-decoration-card");
+  if (!card) return;
+  selectDecoration(card.dataset.decorationId);
+});
+dashboardSocialButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  openSocialHub("dashboard");
+});
+dashboardSchoolButton.addEventListener("click", () => showScreen("school-rank"));
 dashboardStepButton.addEventListener("click", () => showScreen("walk"));
+schoolRankBackButton.addEventListener("click", () => showScreen("dashboard"));
+schoolRankActionButton.addEventListener("click", () => openSocialHub("school-rank"));
+friendsListBackButton.addEventListener("click", () => showScreen(socialReturnScreen));
+friendFeedBackButton.addEventListener("click", () => showScreen(socialReturnScreen));
+friendFeedAddPostButton.addEventListener("click", () => showScreen("new-post"));
+friendsProfileButton.addEventListener("click", () => showScreen("my-feed"));
+friendsFeedProfileButton.addEventListener("click", () => showScreen("my-feed"));
+myFeedBackButton.addEventListener("click", () => showScreen("friend-feed"));
+newPostBackButton.addEventListener("click", () => showScreen("friend-feed"));
+newPostText.addEventListener("input", updateNewPostCount);
+newPostPhotoInput.addEventListener("change", () => renderNewPostPreviews(newPostPhotoInput.files));
+newPostLocationButton.addEventListener("click", () => {
+  newPostLocationText.textContent = "Locating...";
+  if (!navigator.geolocation) {
+    newPostLocationText.textContent = "Location unavailable";
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const lat = position.coords.latitude.toFixed(4);
+      const lng = position.coords.longitude.toFixed(4);
+      newPostLocationText.textContent = `Location added (${lat}, ${lng})`;
+    },
+    () => {
+      newPostLocationText.textContent = "Location unavailable";
+    },
+    { enableHighAccuracy: true, timeout: 7000, maximumAge: 60000 }
+  );
+});
+newPostForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  resetNewPostForm();
+  showScreen("friend-feed");
+});
+friendsNavButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.dataset.friendsTab === "list") {
+      showScreen("friends-list");
+      return;
+    }
+    if (button.dataset.friendsTab === "feed") {
+      showScreen("friend-feed");
+      return;
+    }
+    updateFriendsNavActive("add");
+  });
+});
 literatureBackButton.addEventListener("click", () => showScreen("walk"));
 natureBackButton.addEventListener("click", () => showScreen("walk"));
 recommendationCloseButton.addEventListener("click", closeRecommendation);
@@ -1203,25 +1982,41 @@ letsWalkButton.addEventListener("click", () => {
   totalSteps += 1800;
   updateProgress();
   closeRouteDetail();
-  if (activeRouteDetailKey === "yuen") {
-    showScreen("route-walk");
+  if (routeWalkConfigs[activeRouteDetailKey]) {
+    openRouteWalk(activeRouteDetailKey);
     return;
   }
   showScreen("dashboard");
 });
-routeWalkBackButton.addEventListener("click", () => showScreen("nature"));
-yuenCheckpointOneButton.addEventListener("click", () => {
-  activeCheckpoint = checkpoints[0];
-  showScreen("checkpoint");
+routeWalkBackButton.addEventListener("click", () => {
+  const config = routeWalkConfigs[activeRouteWalkKey] || routeWalkConfigs.yuen;
+  showScreen(config.backScreen);
+});
+routePhotoButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const config = routeWalkConfigs[activeRouteWalkKey] || routeWalkConfigs.yuen;
+    const checkpoint = config.checkpoints[Number(button.dataset.checkpointSlot)];
+    if (checkpoint) openCheckpoint(checkpoint);
+  });
 });
 checkpointBackButton.addEventListener("click", () => showScreen("route-walk"));
 checkpointArrivedButton.addEventListener("click", () => {
-  activeCheckpoint = checkpoints[0];
   showScreen("camera-checkin");
 });
 cameraBackButton.addEventListener("click", () => showScreen("checkpoint"));
 retryLocationButton.addEventListener("click", requestCheckpointLocation);
 captureCheckinButton.addEventListener("click", captureCheckpointPhoto);
+cameraRetakeButton.addEventListener("click", () => {
+  if (activeCheckpoint) startCameraCheckin(activeCheckpoint);
+});
+cameraRetakeButtonInline.addEventListener("click", () => {
+  if (activeCheckpoint) startCameraCheckin(activeCheckpoint);
+});
+cameraDoneButton.addEventListener("click", () => {
+  if (activeCheckpoint?.completed) {
+    showRewardModal(activeCheckpoint);
+  }
+});
 rewardCloseButton.addEventListener("click", () => {
   closeRewardModal();
   showScreen("checkpoint");
@@ -1298,8 +2093,13 @@ translateCardButtons.forEach((button) => {
 });
 
 dashboardScreen.addEventListener("click", (event) => {
+  if (dashboardScreen.classList.contains("is-shop-open") && !event.target.closest(".shop-decoration-panel")) {
+    closeShopPanel();
+    return;
+  }
+
   const blockedTarget = event.target.closest(
-    "button, .dashboard-user-card, .dashboard-side-nav, .dashboard-pet-stage, .cards-collection",
+    "button, .dashboard-user-card, .dashboard-side-nav, .dashboard-pet-stage, .cards-collection, .shop-decoration-panel",
   );
   if (blockedTarget) return;
   dashboardScreen.classList.toggle("is-cards-collapsed");

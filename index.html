@@ -99,6 +99,36 @@
         </form>
       </section>
 
+      <section class="screen selfie-screen" id="selfieScreen" aria-label="Take a selfie">
+        <div class="step-dots step-dots-complete" aria-hidden="true">
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+        </div>
+
+        <section class="profile-card selfie-card">
+          <div class="selfie-camera-art" aria-hidden="true">📷</div>
+          <h1 class="selfie-title" data-text="Take a Selfie">Take a Selfie</h1>
+          <p>According to your personal image</p>
+
+          <div class="selfie-preview-frame">
+            <video id="selfiePreview" autoplay playsinline muted></video>
+            <canvas id="selfieCanvas" hidden></canvas>
+            <img id="selfieCapturedImage" alt="Captured selfie" hidden />
+            <span id="selfieEmptyState">Camera permission needed</span>
+          </div>
+
+          <button class="selfie-capture-button" id="selfieCaptureButton" type="button">Capture Photo</button>
+
+          <p class="selfie-status" id="selfieStatusText" aria-live="polite">Opening selfie camera...</p>
+
+          <div class="form-actions selfie-actions">
+            <button class="form-back-button" id="selfieBackButton" type="button"><span>‹</span> Back</button>
+            <button class="next-button create-button" id="selfieNextButton" type="button">Skip <span>›</span></button>
+          </div>
+        </section>
+      </section>
+
       <section class="screen hatch-screen" id="hatchScreen" aria-label="Tap to hatch">
         <button class="hatch-tap-area" id="hatchTapArea" type="button" aria-label="Tap the egg">
           <div class="hatch-stars" aria-hidden="true"></div>
@@ -195,15 +225,15 @@
             <img src="./icon-find.png" alt="" />
             <span>Find</span>
           </button>
-          <button class="dashboard-side-button" type="button" aria-label="Shop">
+          <button class="dashboard-side-button" id="dashboardShopButton" type="button" aria-label="Shop">
             <img src="./icon-shop.png" alt="" />
             <span>Shop</span>
           </button>
-          <button class="dashboard-side-button" type="button" aria-label="Achievements">
-            <img src="./icon-achieve.png" alt="" />
-            <span>Achieve</span>
+          <button class="dashboard-side-button" id="dashboardSocialButton" type="button" aria-label="Social">
+            <img src="./icon-social.png" alt="" />
+            <span>Social</span>
           </button>
-          <button class="dashboard-side-button" type="button" aria-label="School">
+          <button class="dashboard-side-button" id="dashboardSchoolButton" type="button" aria-label="School">
             <img src="./icon-school.png" alt="" />
             <span>School</span>
           </button>
@@ -212,6 +242,7 @@
 
         <div class="dashboard-pet-stage" role="button" tabindex="0" aria-label="Pet your walking partner" aria-live="polite">
           <img id="dashboardPetImage" src="./pet-blue.png" alt="Selected pet" />
+          <span class="dashboard-pet-decoration" id="dashboardPetDecoration" aria-hidden="true"></span>
         </div>
 
         <button class="dashboard-step-button" id="dashboardStepButton" type="button" aria-label="Today's steps">
@@ -296,6 +327,414 @@
             </article>
           </div>
         </section>
+
+        <section class="shop-decoration-panel" id="shopDecorationPanel" aria-label="Decoration shop" aria-hidden="true">
+          <header class="shop-decoration-header">
+            <div>
+              <img src="./icon-shop.png" alt="" />
+              <h2>Decorations collection</h2>
+            </div>
+            <button class="shop-decoration-close" id="shopDecorationCloseButton" type="button" aria-label="Close decoration shop">×</button>
+          </header>
+
+          <div class="shop-decoration-body">
+            <div class="shop-decoration-preview" aria-label="Current pet decoration preview">
+              <div class="shop-preview-pet">
+                <img id="shopPreviewPetImage" src="./pet-blue.png" alt="" />
+                <span class="dashboard-pet-decoration" id="shopPreviewDecoration" aria-hidden="true"></span>
+              </div>
+              <div>
+                <strong id="shopPetTitle">Ocean Buddy</strong>
+                <p id="shopPetSubtitle">Ocean decorations for this partner</p>
+              </div>
+            </div>
+
+            <div class="shop-decoration-grid" id="shopDecorationGrid" aria-label="Buy pet decorations"></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="screen school-leaderboard-screen" id="schoolLeaderboardScreen" aria-label="School step ranking">
+        <header class="school-rank-header">
+          <button class="school-rank-back" id="schoolRankBackButton" type="button" aria-label="Back to home">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <div class="school-rank-title">
+            <h1>RANKING</h1>
+            <p>Discovering Hong Kong's biodiversity</p>
+          </div>
+          <button class="school-rank-action" id="schoolRankActionButton" type="button" aria-label="Open friends list">
+            <span class="rank-action-head is-left"></span>
+            <span class="rank-action-head is-right"></span>
+            <span class="rank-action-body"></span>
+          </button>
+        </header>
+
+        <section class="school-rank-summary">
+          <div class="rank-profile">
+            <div class="rank-pet-avatar">
+              <img id="schoolRankUserPetImage" src="./pet-yellow.png" alt="" />
+              <span>⭐</span>
+            </div>
+            <div class="rank-profile-copy">
+              <h2><span id="schoolRankUserName">EMMA</span> <em>(YOU)</em></h2>
+              <p id="schoolRankUserClass">LEVEL 12 Guardians</p>
+            </div>
+            <div class="rank-medal rank-medal-two" aria-label="Rank 2">2</div>
+          </div>
+          <div class="rank-summary-stats">
+            <span><i aria-hidden="true">👟</i><strong id="schoolRankUserSteps">12,450</strong></span>
+            <span><i aria-hidden="true">🏆</i><strong>NO.4</strong></span>
+          </div>
+        </section>
+
+        <div class="ranking-ribbon" aria-hidden="true">
+          <img src="./ranking-ribbon.png" alt="" />
+          <strong>RANKING</strong>
+        </div>
+
+        <div class="ranking-tabs" role="tablist" aria-label="Ranking type">
+          <button class="is-active" type="button">FRIEND RANKING</button>
+          <button type="button">SCHOOL RANKING</button>
+        </div>
+
+        <section class="school-rank-list" aria-label="Step leaderboard">
+          <article class="rank-row">
+            <div class="rank-pet-avatar is-small">
+              <img src="./pet-green.png" alt="" />
+              <span>⭐</span>
+            </div>
+            <div class="rank-person">
+              <strong>TOM</strong>
+              <em>LEVEL 12 Guardians</em>
+            </div>
+            <p><strong>19,450</strong><span>Steps</span></p>
+            <div class="rank-medal rank-medal-one" aria-label="Rank 1">1</div>
+          </article>
+          <article class="rank-row is-current">
+            <div class="rank-pet-avatar is-small">
+              <img id="schoolRankCurrentPetImage" src="./pet-yellow.png" alt="" />
+              <span>⭐</span>
+            </div>
+            <div class="rank-person">
+              <strong><span id="schoolRankCurrentName">EMMA</span> <em>(YOU)</em></strong>
+              <em>LEVEL 12 Guardians</em>
+            </div>
+            <p><strong>12,450</strong><span>Steps</span></p>
+            <div class="rank-medal rank-medal-two" aria-label="Rank 2">2</div>
+          </article>
+          <article class="rank-row">
+            <div class="rank-pet-avatar is-small">
+              <img src="./pet-orange.png" alt="" />
+              <span>⭐</span>
+            </div>
+            <div class="rank-person">
+              <strong>ANN</strong>
+              <em>LEVEL 9 Guardians</em>
+            </div>
+            <p><strong>14,450</strong><span>Steps</span></p>
+            <div class="rank-medal rank-medal-three" aria-label="Rank 3">3</div>
+          </article>
+          <article class="rank-row">
+            <div class="rank-pet-avatar is-small">
+              <img src="./pet-pink.png" alt="" />
+              <span>⭐</span>
+            </div>
+            <div class="rank-person">
+              <strong>ARIES</strong>
+              <em>LEVEL 12 Guardians</em>
+            </div>
+            <p><strong>12,450</strong><span>Steps</span></p>
+            <div class="rank-number-badge" aria-label="Rank 4">4</div>
+          </article>
+          <article class="rank-row">
+            <div class="rank-pet-avatar is-small">
+              <img src="./pet-blue.png" alt="" />
+              <span>⭐</span>
+            </div>
+            <div class="rank-person">
+              <strong>BEN</strong>
+              <em>LEVEL 12 Guardians</em>
+            </div>
+            <p><strong>9,450</strong><span>Steps</span></p>
+            <div class="rank-number-badge" aria-label="Rank 5">5</div>
+          </article>
+        </section>
+      </section>
+
+      <section class="screen friends-list-screen" id="friendsListScreen" aria-label="Friends list">
+        <header class="friends-list-header">
+          <button class="friends-list-back" id="friendsListBackButton" type="button" aria-label="Back to previous page">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <div class="friends-list-title">
+            <h1>FRIENDS LIST</h1>
+            <p>Discovering Hong Kong's biodiversity</p>
+          </div>
+          <button class="friends-list-search" type="button" aria-label="Search friends">
+            <img src="./find-search-icon.svg" alt="" />
+          </button>
+        </header>
+
+        <section class="friends-profile">
+          <button class="rank-pet-avatar profile-feed-button" id="friendsProfileButton" type="button" aria-label="Open my posts">
+            <img id="friendsProfilePetImage" src="./pet-yellow.png" alt="" />
+            <span>⭐</span>
+          </button>
+          <div>
+            <h2 id="friendsProfileName">EMMA</h2>
+            <p>FEEL GREAT TO WALK <button type="button" aria-label="Edit status">✎</button></p>
+          </div>
+        </section>
+
+        <section class="friends-list-card" aria-label="Friend actions">
+          <article class="friend-row">
+            <div class="rank-pet-avatar is-small"><img src="./pet-green.png" alt="" /><span>⭐</span></div>
+            <div class="friend-copy"><strong>TOM</strong><em>LEVEL 12 Guardians</em></div>
+            <button class="friend-action is-interact" type="button"><span></span><em>INTERACT</em></button>
+            <button class="friend-action is-invite" type="button"><span></span><em>INVITE</em></button>
+          </article>
+          <article class="friend-row">
+            <div class="rank-pet-avatar is-small"><img src="./pet-yellow.png" alt="" /><span>⭐</span></div>
+            <div class="friend-copy"><strong>EMMA <em>(YOU)</em></strong><em>LEVEL 12 Guardians</em></div>
+            <button class="friend-action is-interact" type="button"><span></span><em>INTERACT</em></button>
+            <button class="friend-action is-invite" type="button"><span></span><em>INVITE</em></button>
+          </article>
+          <article class="friend-row">
+            <div class="rank-pet-avatar is-small"><img src="./pet-orange.png" alt="" /><span>⭐</span></div>
+            <div class="friend-copy"><strong>ANN</strong><em>LEVEL 12 Guardians</em></div>
+            <button class="friend-action is-interact" type="button"><span></span><em>INTERACT</em></button>
+            <button class="friend-action is-invite" type="button"><span></span><em>INVITE</em></button>
+          </article>
+          <article class="friend-row">
+            <div class="rank-pet-avatar is-small"><img src="./pet-pink.png" alt="" /><span>⭐</span></div>
+            <div class="friend-copy"><strong>ARIES</strong><em>LEVEL 12 Guardians</em></div>
+            <button class="friend-action is-interact" type="button"><span></span><em>INTERACT</em></button>
+            <button class="friend-action is-invite" type="button"><span></span><em>INVITE</em></button>
+          </article>
+          <article class="friend-row">
+            <div class="rank-pet-avatar is-small"><img src="./pet-blue.png" alt="" /><span>⭐</span></div>
+            <div class="friend-copy"><strong>BEN</strong><em>LEVEL 12 Guardians</em></div>
+            <button class="friend-action is-interact" type="button"><span></span><em>INTERACT</em></button>
+            <button class="friend-action is-invite" type="button"><span></span><em>INVITE</em></button>
+          </article>
+          <article class="friend-row">
+            <div class="rank-pet-avatar is-small"><img src="./pet-purple.png" alt="" /><span>⭐</span></div>
+            <div class="friend-copy"><strong>RAIN</strong><em>LEVEL 12 Guardians</em></div>
+            <button class="friend-action is-interact" type="button"><span></span><em>INTERACT</em></button>
+            <button class="friend-action is-invite" type="button"><span></span><em>INVITE</em></button>
+          </article>
+          <article class="friend-row">
+            <div class="rank-pet-avatar is-small"><img src="./pet-selected.png" alt="" /><span>⭐</span></div>
+            <div class="friend-copy"><strong>DUDU</strong><em>LEVEL 12 Guardians</em></div>
+            <button class="friend-action is-interact" type="button"><span></span><em>INTERACT</em></button>
+            <button class="friend-action is-invite" type="button"><span></span><em>INVITE</em></button>
+          </article>
+
+          <nav class="friends-bottom-nav" aria-label="Friends navigation">
+            <button class="is-active" type="button" data-friends-tab="list" aria-label="Friends list" aria-pressed="true"></button>
+            <button type="button" data-friends-tab="feed" aria-label="Friend feed" aria-pressed="false"></button>
+            <button type="button" data-friends-tab="add" aria-label="Add friend" aria-pressed="false"></button>
+          </nav>
+        </section>
+      </section>
+
+      <section class="screen friends-list-screen friends-feed-screen" id="friendFeedScreen" aria-label="Friend feed">
+        <header class="friends-list-header">
+          <button class="friends-list-back" id="friendFeedBackButton" type="button" aria-label="Back to previous page">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <div class="friends-list-title">
+            <h1>FRIEND FEED</h1>
+            <p>Discovering Hong Kong's biodiversity</p>
+          </div>
+          <button class="friend-feed-add-button" id="friendFeedAddPostButton" type="button" aria-label="Create new post"></button>
+        </header>
+
+        <section class="friends-profile">
+          <button class="rank-pet-avatar profile-feed-button" id="friendsFeedProfileButton" type="button" aria-label="Open my posts">
+            <img id="friendsFeedProfilePetImage" src="./pet-yellow.png" alt="" />
+            <span>⭐</span>
+          </button>
+          <div>
+            <h2 id="friendsFeedProfileName">EMMA</h2>
+            <p>FEEL GREAT TO WALK <button type="button" aria-label="Edit status">✎</button></p>
+          </div>
+        </section>
+
+        <section class="friend-feed-card" aria-label="Friend feed posts">
+          <article class="friend-feed-post">
+            <div class="rank-pet-avatar is-small"><img src="./pet-green.png" alt="" /><span>⭐</span></div>
+            <div class="feed-post-body">
+              <h2>TOM</h2>
+              <p class="feed-post-caption">SAW CUTE WATER BIRDS!</p>
+              <div class="feed-post-media">
+                <img class="feed-photo" src="./friend-feed-tom-photo.png" alt="Hong Kong hill view" />
+                <article class="feed-mini-card">
+                  <span>#00001</span>
+                  <img src="./friend-feed-white-heron-card.png" alt="White Heron" />
+                  <strong>White Heron</strong>
+                  <em>★★</em>
+                  <button type="button">Translated</button>
+                </article>
+              </div>
+              <div class="feed-post-meta"><span>14 likes</span><span>2hrs</span></div>
+              <div class="feed-post-actions">
+                <button type="button"><span>👍</span>LIKE</button>
+                <button type="button"><span>💬</span>COMMENT</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="friend-feed-post">
+            <div class="rank-pet-avatar is-small"><img src="./pet-blue.png" alt="" /><span>⭐</span></div>
+            <div class="feed-post-body">
+              <h2>BEN</h2>
+              <p class="feed-post-caption">NICE DAY WITH TOM</p>
+              <div class="feed-post-media">
+                <img class="feed-photo" src="./friend-feed-ben-photo.png" alt="Trail signs" />
+                <article class="feed-mini-card">
+                  <span>#00005</span>
+                  <img src="./friend-feed-marsh-frog-card.png" alt="Marsh Frog" />
+                  <strong>Marsh Frog</strong>
+                  <em>★★</em>
+                  <button type="button">Translated</button>
+                </article>
+              </div>
+              <div class="feed-post-meta"><span>22 likes</span><span>5hrs</span></div>
+              <div class="feed-post-actions">
+                <button type="button"><span>👍</span>LIKE</button>
+                <button type="button"><span>💬</span>COMMENT</button>
+              </div>
+            </div>
+          </article>
+
+          <nav class="friends-bottom-nav" aria-label="Friends navigation">
+            <button type="button" data-friends-tab="list" aria-label="Friends list" aria-pressed="false"></button>
+            <button class="is-active" type="button" data-friends-tab="feed" aria-label="Friend feed" aria-pressed="true"></button>
+            <button type="button" data-friends-tab="add" aria-label="Add friend" aria-pressed="false"></button>
+          </nav>
+        </section>
+      </section>
+
+      <section class="screen friends-list-screen my-feed-screen" id="myFeedScreen" aria-label="My friend feed posts">
+        <header class="friends-list-header">
+          <button class="friends-list-back" id="myFeedBackButton" type="button" aria-label="Back to friend feed">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <div class="friends-list-title">
+            <h1>FRIEND FEED</h1>
+            <p>Discovering Hong Kong's biodiversity</p>
+          </div>
+          <button class="friends-list-search" type="button" aria-label="Search posts">
+            <img src="./find-search-icon.svg" alt="" />
+          </button>
+        </header>
+
+        <section class="friends-profile">
+          <button class="rank-pet-avatar profile-feed-button" type="button" aria-label="My profile">
+            <img id="myFeedProfilePetImage" src="./pet-yellow.png" alt="" />
+            <span>⭐</span>
+          </button>
+          <div>
+            <h2 id="myFeedProfileName">EMMA</h2>
+            <p>FEEL GREAT TO WALK <button type="button" aria-label="Edit status">✎</button></p>
+          </div>
+        </section>
+
+        <section class="my-feed-card" aria-label="My posts">
+          <article class="my-feed-entry">
+            <time>TODAY</time>
+            <img src="./yuen-checkpoint-1-hero.png" alt="Sunny walking route" />
+            <div class="my-feed-copy">
+              <p>NICE DAY WITH TOM</p>
+              <div><img src="./route-icon-length.png" alt="" /><span>Route Length<br /><strong>~1 km</strong></span></div>
+              <div><img src="./route-icon-time.png" alt="" /><span>Route Time<br /><strong>55 min</strong></span></div>
+            </div>
+          </article>
+          <article class="my-feed-entry">
+            <time>Apr<br />21</time>
+            <img src="./route-detail-yuen-chau-kok.png" alt="Yuen Chau Kok Park" />
+            <div class="my-feed-copy">
+              <p>GOOD WEATHER</p>
+              <div><img src="./route-icon-length.png" alt="" /><span>Route Length<br /><strong>~1 km</strong></span></div>
+              <div><img src="./route-icon-time.png" alt="" /><span>Route Time<br /><strong>85 min</strong></span></div>
+            </div>
+          </article>
+          <article class="my-feed-entry">
+            <time>Apr<br />15</time>
+            <img src="./hung-checkpoint-2-hero.png" alt="Trail checkpoint" />
+            <div class="my-feed-copy">
+              <p>Just hit 19,490 steps!</p>
+              <div><img src="./route-icon-length.png" alt="" /><span>Route Length<br /><strong>~1 km</strong></span></div>
+              <div><img src="./route-icon-time.png" alt="" /><span>Route Time<br /><strong>70 min</strong></span></div>
+            </div>
+          </article>
+          <article class="my-feed-entry">
+            <time>Apr<br />07</time>
+            <img src="./yuen-checkpoint-4-hero.png" alt="Park playground" />
+            <div class="my-feed-copy">
+              <p>NICE DAY WITH TOM</p>
+              <div><img src="./route-icon-length.png" alt="" /><span>Route Length<br /><strong>~1 km</strong></span></div>
+              <div><img src="./route-icon-time.png" alt="" /><span>Route Time<br /><strong>29 min</strong></span></div>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section class="screen new-post-screen" id="newPostScreen" aria-label="Create new post">
+        <header class="new-post-header">
+          <button class="friends-list-back" id="newPostBackButton" type="button" aria-label="Back to friend feed">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <div class="new-post-title">
+            <h1>NEW POST</h1>
+            <p>Share your discovery</p>
+          </div>
+          <span aria-hidden="true"></span>
+        </header>
+
+        <section class="friends-profile new-post-profile">
+          <div class="rank-pet-avatar">
+            <img id="newPostProfilePetImage" src="./pet-yellow.png" alt="" />
+            <span>⭐</span>
+          </div>
+          <div>
+            <h2 id="newPostProfileName">EMMA</h2>
+            <p>FEEL GREAT TO WALK <button type="button" aria-label="Edit status">✎</button></p>
+          </div>
+        </section>
+
+        <form class="new-post-form" id="newPostForm">
+          <section class="new-post-card">
+            <label class="sr-only" for="newPostText">Post text</label>
+            <textarea id="newPostText" maxlength="280" placeholder="What did you discover today? Share with your friends..."></textarea>
+            <output class="new-post-count" id="newPostCount" for="newPostText">0/280</output>
+
+            <div class="new-post-divider"></div>
+            <div class="new-post-photos-label">
+              <img src="./new-post-camera-small.svg" alt="" />
+              <span>PHOTOS</span>
+              <em>(up to 6)</em>
+            </div>
+
+            <div class="new-post-photo-row">
+              <label class="new-post-photo-slot" for="newPostPhotoInput">
+                <input id="newPostPhotoInput" type="file" accept="image/*" multiple />
+                <img src="./new-post-camera-large.svg" alt="" />
+                <span>ADD PHOTO</span>
+              </label>
+              <div class="new-post-preview-grid" id="newPostPreviewGrid" aria-label="Selected photos"></div>
+            </div>
+
+            <button class="new-post-location" id="newPostLocationButton" type="button">
+              <img src="./new-post-pin.svg" alt="" />
+              <span id="newPostLocationText">Add location...</span>
+            </button>
+          </section>
+
+          <button class="new-post-submit" id="newPostSubmitButton" type="submit">POST</button>
+        </form>
       </section>
 
       <section class="screen walk-screen find-screen" id="walkScreen" aria-label="Find routes">
@@ -419,6 +858,22 @@
         </nav>
 
         <section class="literature-route-list" aria-label="Literature route list">
+          <article class="literature-route-card literature-route-card--polyu" data-difficulty="easy">
+            <div class="literature-route-image">
+              <img src="./literature-polyu.png" alt="" />
+              <span class="difficulty-badge">EASY</span>
+              <img class="route-chevron" src="./literature-card-chevron.svg" alt="" />
+            </div>
+            <div class="literature-route-body">
+              <h2>The Hong Kong Polytechnic University</h2>
+              <p>The Hong Kong Polytechnic University is a leading university in Hong Kong known for design, technology, and innovation.</p>
+              <div class="literature-route-meta">
+                <img src="./literature-like-icon.svg" alt="" />
+                <span>Contains over<br /><strong>10</strong> kinds of animals and plants</span>
+              </div>
+            </div>
+          </article>
+
           <article class="literature-route-card" data-difficulty="easy">
             <div class="literature-route-image">
               <img src="./literature-hku.png" alt="" />
@@ -608,19 +1063,40 @@
       </section>
 
       <section class="screen route-walk-screen" id="routeWalkScreen" aria-label="Yuen Chau Kok Park route">
-        <div class="route-walk-map">
-          <img src="./yuen-walk-map-base.png" alt="" />
-          <button class="route-photo-point is-point-one" id="yuenCheckpointOneButton" type="button" aria-label="Open checkpoint photo: Yuen Chau Kok Park viewpoint">
+        <div class="route-walk-map" id="routeWalkMap" data-route="yuen">
+          <img id="routeWalkMapImage" src="./yuen-walk-map-base.png" alt="" />
+          <button class="route-photo-point is-point-one" id="yuenCheckpointOneButton" type="button" data-checkpoint-slot="0" aria-label="Open checkpoint photo: Yuen Chau Kok Park viewpoint">
             <img src="./yuen-checkpoint-1-thumb.png" alt="" />
+          </button>
+          <button class="route-photo-point is-point-two" id="yuenCheckpointTwoButton" type="button" data-checkpoint-slot="1" aria-label="Open checkpoint photo: Yuen Chau Kok Park route 2">
+            <img src="./yuen-checkpoint-2-thumb.png" alt="" />
+          </button>
+          <button class="route-photo-point is-point-three" id="yuenCheckpointThreeButton" type="button" data-checkpoint-slot="2" aria-label="Open checkpoint photo: Yuen Chau Kok Park route 3">
+            <img src="./yuen-checkpoint-3-thumb.png" alt="" />
+          </button>
+          <button class="route-photo-point is-point-four" id="yuenCheckpointFourButton" type="button" data-checkpoint-slot="3" aria-label="Open checkpoint photo: Yuen Chau Kok Park route 4">
+            <img src="./yuen-checkpoint-4-thumb.png" alt="" />
+          </button>
+          <button class="route-photo-point is-point-five" id="yuenCheckpointFiveButton" type="button" data-checkpoint-slot="4" aria-label="Open checkpoint photo: Yuen Chau Kok Park route 5">
+            <img src="./yuen-checkpoint-5-thumb.png" alt="" />
+          </button>
+          <button class="route-photo-point is-point-six" id="yuenCheckpointSixButton" type="button" data-checkpoint-slot="5" aria-label="Open checkpoint photo: Yuen Chau Kok Park route 6">
+            <img src="./yuen-checkpoint-6-thumb.png" alt="" />
+          </button>
+          <button class="route-photo-point is-point-seven" id="yuenCheckpointSevenButton" type="button" data-checkpoint-slot="6" aria-label="Open checkpoint photo: Yuen Chau Kok Park route 7">
+            <img src="./yuen-checkpoint-7-thumb.png" alt="" />
+          </button>
+          <button class="route-photo-point is-point-eight" id="yuenCheckpointEightButton" type="button" data-checkpoint-slot="7" aria-label="Open checkpoint photo: Yuen Chau Kok Park route 8">
+            <img src="./yuen-checkpoint-8-thumb.png" alt="" />
           </button>
           <button class="route-walk-back" id="routeWalkBackButton" type="button" aria-label="Back to route details">
             <img src="./find-back-icon.svg" alt="" />
           </button>
           <aside class="route-walk-distance" aria-label="Today's walk">
             <span>Today’s Walk</span>
-            <strong>1.2km</strong>
+            <strong id="routeWalkDistanceValue">1.2km</strong>
           </aside>
-          <p class="route-walk-name">Yuen chau Kok Park</p>
+          <p class="route-walk-name" id="routeWalkName">Yuen chau Kok Park</p>
         </div>
 
         <section class="route-walk-collection" aria-label="Route check-in collection">
@@ -630,7 +1106,7 @@
           </nav>
 
           <div class="route-unlock-grid route-walk-panel is-active" data-walk-panel="items">
-            <article class="unlock-card">
+            <article class="unlock-card" data-unlock-slot="0">
               <div class="unlock-image is-gold">
                 <img src="./yuen-walk-item-a.png" alt="" />
               </div>
@@ -639,7 +1115,7 @@
               <strong><span aria-hidden="true">♡</span>120m</strong>
             </article>
 
-            <article class="unlock-card">
+            <article class="unlock-card" data-unlock-slot="1">
               <div class="unlock-image is-gold">
                 <img src="./yuen-walk-item-b.png" alt="" />
               </div>
@@ -648,7 +1124,7 @@
               <strong><span aria-hidden="true">♡</span>350m</strong>
             </article>
 
-            <article class="unlock-card is-locked">
+            <article class="unlock-card is-locked" data-unlock-slot="2">
               <div class="unlock-lock" aria-hidden="true"></div>
               <div class="unlock-image is-muted">
                 <img src="./yuen-walk-item-c.png" alt="" />
@@ -658,7 +1134,7 @@
               <strong><span aria-hidden="true">♡</span>580m</strong>
             </article>
 
-            <article class="unlock-card is-locked">
+            <article class="unlock-card is-locked" data-unlock-slot="3">
               <div class="unlock-lock" aria-hidden="true"></div>
               <div class="unlock-image is-muted">
                 <img src="./yuen-walk-item-d.png" alt="" />
@@ -709,15 +1185,15 @@
         </section>
       </section>
 
-      <section class="screen checkpoint-screen" id="checkpointScreen" aria-label="Yuen Chau Kok Park checkpoint">
+      <section class="screen checkpoint-screen" id="checkpointScreen" aria-label="Yuen Chau Kok Park checkpoint" data-checkpoint="yuen-viewpoint-1">
         <div class="checkpoint-hero">
-          <img src="./yuen-checkpoint-1-hero.png" alt="" />
+          <img id="checkpointHeroImage" src="./yuen-checkpoint-1-hero.png" alt="" />
           <button class="route-walk-back" id="checkpointBackButton" type="button" aria-label="Back to route map">
             <img src="./find-back-icon.svg" alt="" />
           </button>
           <aside class="route-walk-distance" aria-label="Today's walk">
             <span>Today’s Walk</span>
-            <strong>1.2km</strong>
+            <strong id="checkpointDistanceValue">1.2km</strong>
           </aside>
           <button class="checkpoint-arrived-button" id="checkpointArrivedButton" type="button">
             <span>I got here !</span>
@@ -774,32 +1250,71 @@
       </section>
 
       <section class="screen camera-checkin-screen" id="cameraCheckinScreen" aria-label="Camera checkpoint check-in">
-        <header class="camera-checkin-header">
-          <button class="route-walk-back" id="cameraBackButton" type="button" aria-label="Back to checkpoint">
-            <img src="./find-back-icon.svg" alt="" />
-          </button>
-          <div>
-            <h1 id="cameraCheckpointTitle">Checkpoint</h1>
-            <p id="cameraCheckpointMeta">GPS check within 80m</p>
+        <button class="camera-floating-back" id="cameraBackButton" type="button" aria-label="Back to checkpoint">
+          <img src="./find-back-icon.svg" alt="" />
+        </button>
+
+        <article class="camera-device" aria-labelledby="cameraCheckpointTitle">
+          <div class="camera-device-border" aria-hidden="true"></div>
+          <div class="camera-body">
+            <header class="camera-topbar">
+              <div class="camera-color-bars" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <button class="camera-again-button" id="cameraRetakeButton" type="button">Again</button>
+            </header>
+
+            <div class="camera-live-view">
+              <div class="camera-frame">
+                <video id="cameraPreview" autoplay playsinline muted></video>
+                <canvas id="cameraCanvas" hidden></canvas>
+                <p class="camera-empty-state" id="cameraEmptyState">Opening camera...</p>
+                <span class="camera-corner is-top-left" aria-hidden="true"></span>
+                <span class="camera-corner is-top-right" aria-hidden="true"></span>
+                <span class="camera-corner is-bottom-left" aria-hidden="true"></span>
+                <span class="camera-corner is-bottom-right" aria-hidden="true"></span>
+                <strong class="camera-photo-label" id="cameraPhotoLabel">CHECKPOINT</strong>
+              </div>
+
+              <section class="camera-status-card" aria-live="polite">
+                <p id="cameraStatusText">Requesting camera and location once.</p>
+                <strong id="cameraDistanceText">Distance: --</strong>
+              </section>
+
+              <div class="camera-actions">
+                <button class="camera-secondary-button" id="retryLocationButton" type="button" aria-label="Retry GPS">
+                  <span></span><span></span><span></span><span></span>
+                </button>
+                <button class="camera-primary-button" id="captureCheckinButton" type="button" aria-label="Take Photo">
+                  <span></span>
+                </button>
+                <button class="camera-album-button" type="button" aria-label="Album" disabled>
+                  <span>99+</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="camera-result-view">
+              <button class="camera-again-button is-inline" id="cameraRetakeButtonInline" type="button">Again</button>
+              <h1 id="cameraCheckpointTitle">Nice shot!</h1>
+              <p id="cameraCheckpointMeta">Photo saved to your album</p>
+              <figure class="camera-polaroid">
+                <div class="camera-polaroid-photo">
+                  <img id="capturedPhotoPreview" alt="" hidden />
+                  <strong id="cameraResultPhotoLabel">CHECKPOINT</strong>
+                </div>
+                <img class="camera-result-pet" src="./camera-result-pet.png" alt="" />
+                <img class="camera-result-cloud" src="./camera-pet-cloud.png" alt="" />
+              </figure>
+              <div class="camera-location-row">
+                <span aria-hidden="true"></span>
+                <p id="cameraLocationName">Checkpoint</p>
+                <strong id="cameraRequiredDistance">80 m</strong>
+              </div>
+              <button class="camera-done-button" id="cameraDoneButton" type="button">DONE</button>
+            </div>
           </div>
-        </header>
-
-        <div class="camera-frame">
-          <video id="cameraPreview" autoplay playsinline muted></video>
-          <canvas id="cameraCanvas" hidden></canvas>
-          <img id="capturedPhotoPreview" alt="" hidden />
-          <p class="camera-empty-state" id="cameraEmptyState">Opening camera...</p>
-        </div>
-
-        <section class="camera-status-card" aria-live="polite">
-          <p id="cameraStatusText">Requesting camera and location once.</p>
-          <strong id="cameraDistanceText">Distance: --</strong>
-        </section>
-
-        <div class="camera-actions">
-          <button class="camera-secondary-button" id="retryLocationButton" type="button">Retry GPS</button>
-          <button class="camera-primary-button" id="captureCheckinButton" type="button">Take Photo</button>
-        </div>
+        </article>
       </section>
 
       <section class="reward-modal" id="rewardModal" aria-hidden="true">
