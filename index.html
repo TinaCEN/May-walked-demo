@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Jersey+20&family=Jersey+25&family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260522-home-drag" />
   </head>
   <body>
     <main class="stage" aria-label="Have you walked demo">
@@ -241,6 +241,7 @@
         </nav>
 
         <div class="dashboard-pet-stage" role="button" tabindex="0" aria-label="Pet your walking partner" aria-live="polite">
+          <img class="dashboard-home-effect" id="dashboardHomeEffect" src="" alt="" hidden />
           <img id="dashboardPetImage" src="./pet-blue.png" alt="Selected pet" />
           <span class="dashboard-pet-decoration" id="dashboardPetDecoration" aria-hidden="true"></span>
         </div>
@@ -250,7 +251,7 @@
           <strong id="dashboardStepCount">1922</strong>
         </button>
 
-        <section class="cards-collection" aria-label="Cards collection">
+        <section class="cards-collection" aria-label="Cards collection" tabindex="0">
           <header class="cards-collection-header">
             <div>
               <img src="./icon-cards.svg" alt="" />
@@ -330,9 +331,19 @@
 
         <section class="shop-decoration-panel" id="shopDecorationPanel" aria-label="Decoration shop" aria-hidden="true">
           <header class="shop-decoration-header">
-            <div>
-              <img src="./icon-shop.png" alt="" />
-              <h2>Decorations collection</h2>
+            <div class="shop-decoration-tabs" role="tablist" aria-label="Shop category">
+              <button class="shop-decoration-tab is-active" id="shopAccessoriesTab" data-shop-tab="accessories" type="button" role="tab" aria-selected="true">
+                <span class="shop-decoration-tab-icon is-accessory" aria-hidden="true"></span>
+                <span>Accessories</span>
+              </button>
+              <button class="shop-decoration-tab" id="shopHomeEffectsTab" data-shop-tab="home" type="button" role="tab" aria-selected="false">
+                <span class="shop-decoration-tab-icon is-home" aria-hidden="true"></span>
+                <span>Home Effects</span>
+              </button>
+            </div>
+            <div class="shop-decoration-wallet" aria-label="Coins 1250">
+              <span class="shop-decoration-coin" aria-hidden="true"></span>
+              <strong id="shopWalletAmount">1250</strong>
             </div>
             <button class="shop-decoration-close" id="shopDecorationCloseButton" type="button" aria-label="Close decoration shop">×</button>
           </header>
@@ -350,6 +361,179 @@
             </div>
 
             <div class="shop-decoration-grid" id="shopDecorationGrid" aria-label="Buy pet decorations"></div>
+          </div>
+        </section>
+
+        <div class="shop-modal-overlay" id="shopPurchaseOverlay" aria-hidden="true">
+          <section class="shop-modal-card is-confirm" role="dialog" aria-modal="true" aria-labelledby="shopPurchaseTitle">
+            <div class="shop-modal-stripe" aria-hidden="true"></div>
+            <button class="shop-modal-close-button" id="shopPurchaseCloseButton" type="button" aria-label="Close purchase confirmation">×</button>
+            <img class="shop-modal-item-image" id="shopPurchaseImage" src="./home-effect-unicorn.png" alt="" />
+            <h2 id="shopPurchaseTitle">Confirm Purchase?</h2>
+            <p class="shop-modal-copy">Buy <strong id="shopPurchaseItemName">Rocking Unicorn</strong>?</p>
+            <div class="shop-modal-price">
+              <span>Cost</span>
+              <i class="shop-modal-coin" aria-hidden="true"></i>
+              <strong id="shopPurchaseCost">1200</strong>
+            </div>
+            <p class="shop-modal-balance" id="shopPurchaseBalance">Balance: 1250</p>
+            <div class="shop-modal-actions">
+              <button class="shop-modal-button is-cancel" id="shopPurchaseCancelButton" type="button">Cancel</button>
+              <button class="shop-modal-button is-confirm" id="shopPurchaseConfirmButton" type="button">Confirm</button>
+            </div>
+          </section>
+        </div>
+
+        <div class="shop-modal-overlay" id="shopSuccessOverlay" aria-hidden="true">
+          <section class="shop-modal-card is-success" role="dialog" aria-modal="true" aria-labelledby="shopSuccessTitle">
+            <div class="shop-modal-stripe" aria-hidden="true"></div>
+            <button class="shop-modal-close-button" id="shopSuccessCloseButton" type="button" aria-label="Close purchase success">×</button>
+            <img class="shop-modal-item-image" id="shopSuccessImage" src="./home-effect-unicorn.png" alt="" />
+            <h2 id="shopSuccessTitle">Purchase Success!</h2>
+            <p class="shop-modal-copy">You got <strong id="shopSuccessItemName">Rocking Unicorn</strong></p>
+            <div class="shop-modal-price">
+              <span>Spent</span>
+              <i class="shop-modal-coin" aria-hidden="true"></i>
+              <strong id="shopSuccessCost">1200</strong>
+            </div>
+            <button class="shop-modal-button is-ok" id="shopSuccessOkButton" type="button">OK</button>
+          </section>
+        </div>
+      </section>
+
+      <section class="screen collection-screen" id="collectionScreen" aria-label="Card collection">
+        <header class="collection-page-header">
+          <button class="collection-back-button" id="collectionBackButton" type="button" aria-label="Back to home">
+            <img src="./find-back-icon.svg" alt="" />
+          </button>
+          <div class="collection-title-block">
+            <h1>Collection</h1>
+            <p>Collecting the biodiversity of Hong Kong</p>
+          </div>
+        </header>
+
+        <label class="collection-search" aria-label="Search cards">
+          <img src="./find-search-icon.svg" alt="" />
+          <input type="search" placeholder="Search" />
+        </label>
+
+        <section class="collection-category-grid" aria-label="Card categories">
+          <button class="collection-category-card" type="button">
+            <img src="./collection-category-animals-small.png" alt="" />
+            <span class="collection-category-count">0/12</span>
+            <strong>Animals</strong>
+          </button>
+          <button class="collection-category-card" type="button">
+            <img src="./collection-category-plants-small.png" alt="" />
+            <span class="collection-category-count">0/20</span>
+            <strong>Plants</strong>
+          </button>
+          <button class="collection-category-card" type="button">
+            <img src="./collection-category-marine-small.png" alt="" />
+            <span class="collection-category-count">0/15</span>
+            <strong>Marine Life</strong>
+          </button>
+          <button class="collection-category-card" type="button">
+            <img src="./collection-category-people-small.png" alt="" />
+            <span class="collection-category-count">0/18</span>
+            <strong>People</strong>
+          </button>
+        </section>
+
+        <section class="collection-recent" aria-label="Recent discovered cards">
+          <h2>Recent Discover</h2>
+
+          <div class="collection-recent-list">
+            <article class="collection-recent-card">
+              <img class="collection-recent-thumb" src="./card-white-heron.png" alt="White Heron" />
+              <div class="collection-recent-copy">
+                <h3>White Heron</h3>
+                <div class="collection-recent-stars" aria-label="2 of 3 stars">
+                  <img src="./icon-star.svg" alt="" />
+                  <img src="./icon-star.svg" alt="" />
+                  <img class="is-empty" src="./icon-star.svg" alt="" />
+                </div>
+              </div>
+              <button class="collection-status-button is-collected" type="button">Collected</button>
+            </article>
+
+            <article class="collection-recent-card">
+              <img class="collection-recent-thumb" src="./card-eileen-chang.png" alt="Eileen Chang" />
+              <div class="collection-recent-copy">
+                <h3>Eileen Chang</h3>
+                <div class="collection-recent-stars" aria-label="2 of 3 stars">
+                  <img src="./icon-star.svg" alt="" />
+                  <img src="./icon-star.svg" alt="" />
+                  <img class="is-empty" src="./icon-star.svg" alt="" />
+                </div>
+              </div>
+              <button class="collection-status-button is-collected" type="button">Collected</button>
+            </article>
+
+            <article class="collection-recent-card">
+              <img class="collection-recent-thumb" src="./card-grey-heron.png" alt="Grey Heron" />
+              <div class="collection-recent-copy">
+                <h3>Grey Heron</h3>
+                <div class="collection-recent-stars" aria-label="3 of 3 stars">
+                  <img src="./icon-star.svg" alt="" />
+                  <img src="./icon-star.svg" alt="" />
+                  <img src="./icon-star.svg" alt="" />
+                </div>
+              </div>
+              <button class="collection-status-button is-collected" type="button">Collected</button>
+            </article>
+
+            <article class="collection-recent-card">
+              <img class="collection-recent-thumb" src="./route-card-hku-pink-trumpet.png" alt="Cherry Blossom" />
+              <div class="collection-recent-copy">
+                <h3>Cherry Blossom</h3>
+                <div class="collection-recent-stars" aria-label="2 of 3 stars">
+                  <img src="./icon-star.svg" alt="" />
+                  <img src="./icon-star.svg" alt="" />
+                  <img class="is-empty" src="./icon-star.svg" alt="" />
+                </div>
+              </div>
+              <button class="collection-status-button is-collected" type="button">Collected</button>
+            </article>
+
+            <article class="collection-recent-card">
+              <img class="collection-recent-thumb" src="./route-card-common-kingfisher.png" alt="Chinese Pond Heron" />
+              <div class="collection-recent-copy">
+                <h3>Chinese Pond Heron</h3>
+                <div class="collection-recent-stars" aria-label="2 of 3 stars">
+                  <img src="./icon-star.svg" alt="" />
+                  <img src="./icon-star.svg" alt="" />
+                  <img class="is-empty" src="./icon-star.svg" alt="" />
+                </div>
+              </div>
+              <button class="collection-status-button is-collected" type="button">Collected</button>
+            </article>
+
+            <article class="collection-recent-card is-locked">
+              <span class="collection-locked-thumb" aria-hidden="true"></span>
+              <div class="collection-recent-copy">
+                <h3>???</h3>
+                <div class="collection-recent-stars" aria-label="Not found">
+                  <img class="is-empty" src="./icon-star.svg" alt="" />
+                  <img class="is-empty" src="./icon-star.svg" alt="" />
+                  <img class="is-empty" src="./icon-star.svg" alt="" />
+                </div>
+              </div>
+              <button class="collection-status-button is-not-found" type="button">Not Found</button>
+            </article>
+
+            <article class="collection-recent-card is-locked">
+              <span class="collection-locked-thumb" aria-hidden="true"></span>
+              <div class="collection-recent-copy">
+                <h3>???</h3>
+                <div class="collection-recent-stars" aria-label="Not found">
+                  <img class="is-empty" src="./icon-star.svg" alt="" />
+                  <img class="is-empty" src="./icon-star.svg" alt="" />
+                  <img class="is-empty" src="./icon-star.svg" alt="" />
+                </div>
+              </div>
+              <button class="collection-status-button is-not-found" type="button">Not Found</button>
+            </article>
           </div>
         </section>
       </section>
@@ -1096,7 +1280,7 @@
             <span>Today’s Walk</span>
             <strong id="routeWalkDistanceValue">1.2km</strong>
           </aside>
-          <p class="route-walk-name" id="routeWalkName">Yuen chau Kok Park</p>
+          <button class="route-walk-name" id="routeWalkName" type="button">Yuen chau Kok Park</button>
         </div>
 
         <section class="route-walk-collection" aria-label="Route check-in collection">
@@ -1405,6 +1589,6 @@
     </dialog>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="./script.js"></script>
+    <script src="./script.js?v=20260522-home-drag"></script>
   </body>
 </html>

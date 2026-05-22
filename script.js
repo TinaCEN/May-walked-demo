@@ -27,44 +27,102 @@ const pets = [
 
 const decorationCatalog = {
   "pet-blue.png": [
-    { id: "blue-default", name: "Default", price: 0, className: "", note: "Ocean Buddy accessories", isDefault: true },
-    { id: "blue-bubble-cap", name: "Bubble Cap", price: 120, className: "is-bubble-cap", note: "Ocean Buddy accessories" },
-    { id: "blue-shell-pin", name: "Shell Pin", price: 160, className: "is-shell-pin", note: "Ocean Buddy accessories" },
-    { id: "blue-ocean-scarf", name: "Wave Scarf", price: 220, className: "is-ocean-scarf", note: "Ocean Buddy accessories" },
-    { id: "blue-coral-bloom", name: "Coral Bloom", price: 260, className: "is-coral-bloom", note: "Ocean Buddy accessories" },
-    { id: "blue-pearl-crown", name: "Pearl Crown", price: 280, className: "is-pearl-crown", note: "Ocean Buddy accessories" },
-    { id: "blue-daisy-pin", name: "Daisy Pin", price: 180, className: "is-daisy-pin", note: "Ocean Buddy accessories" },
-    { id: "blue-sea-glass", name: "Sea Glass", price: 210, className: "is-sea-glass", note: "Ocean Buddy accessories" },
+    { id: "blue-party-hat", name: "Party Hat", price: 800, image: "./blue-party-hat.png", thumb: "./blue-party-hat-thumb.png", note: "Ocean Buddy accessories" },
+    { id: "blue-citrus-drink", name: "Lemon Drink", price: 600, image: "./blue-citrus-drink.png", thumb: "./blue-citrus-drink-thumb.png", note: "Ocean Buddy accessories" },
+    { id: "blue-chef-hat", name: "Chef Hat", price: 1200, image: "./blue-chef-hat.png", thumb: "./blue-chef-hat-thumb.png", note: "Ocean Buddy accessories" },
+    { id: "blue-moon-cap", name: "Moon Cap", price: 800, image: "./blue-moon-cap.png", thumb: "./blue-moon-cap-thumb.png", note: "Ocean Buddy accessories" },
+    { id: "blue-graduation-cap", name: "Grad Cap", price: 1000, image: "./blue-graduation-cap.png", thumb: "./blue-graduation-cap-thumb.png", note: "Ocean Buddy accessories" },
+    { id: "blue-eye-patch", name: "Eye Patch", price: 400, image: "./blue-eye-patch.png", thumb: "./blue-eye-patch-thumb.png", note: "Ocean Buddy accessories" },
+    { id: "blue-pirate-hat", name: "Pirate Hat", price: 1200, image: "./blue-pirate-hat.png", thumb: "./blue-pirate-hat-thumb.png", note: "Ocean Buddy accessories" },
+    { id: "blue-cowboy-hat", name: "Cowboy Hat", price: 800, image: "./blue-cowboy-hat.png", thumb: "./blue-cowboy-hat-thumb.png", note: "Ocean Buddy accessories" },
+    { id: "blue-wings", name: "Angel Wings", price: 1000, image: "./blue-wings.png", thumb: "./blue-wings-thumb.png", note: "Ocean Buddy accessories" },
+    { id: "blue-star-ferry", name: "Star Ferry", price: 600, image: "./blue-star-ferry.png", thumb: "./blue-star-ferry-thumb.png", note: "Ocean Buddy accessories" },
+    { id: "blue-cookies", name: "Cookie Tray", price: 400, image: "./blue-cookies.png", thumb: "./blue-cookies-thumb.png", note: "Ocean Buddy accessories" },
+    { id: "blue-gold-cap", name: "Gold Cap", price: 1200, image: "./blue-gold-cap.png", thumb: "./blue-gold-cap-thumb.png", note: "Ocean Buddy accessories" },
   ],
   "pet-green.png": [
-    { id: "green-leaf-hat", name: "Leaf Hat", price: 120, className: "is-leaf-hat", note: "Forest decorations for this partner" },
-    { id: "green-berry-bow", name: "Berry Bow", price: 170, className: "is-berry-bow", note: "Forest decorations for this partner" },
-    { id: "green-star-charm", name: "Moss Star", price: 240, className: "is-star-charm", note: "Forest decorations for this partner" },
+    { id: "green-bunny-balloon", name: "Bunny Balloon", price: 800, image: "./green-bunny-balloon.png", thumb: "./green-bunny-balloon-thumb.png", note: "Green Hopper accessories" },
+    { id: "green-halo", name: "Halo", price: 1200, image: "./green-halo.png", thumb: "./green-halo-thumb.png", note: "Green Hopper accessories" },
+    { id: "green-butterfly-net", name: "Butterfly Net", price: 400, image: "./green-butterfly-net.png", thumb: "./green-butterfly-net-thumb.png", note: "Green Hopper accessories" },
+    { id: "green-candy-skewer", name: "Candy Skewer", price: 500, image: "./green-candy-skewer.png", thumb: "./green-candy-skewer-thumb.png", note: "Green Hopper accessories" },
+    { id: "green-lemon-juice", name: "Lemon Juice", price: 1200, image: "./green-lemon-juice.png", thumb: "./green-lemon-juice-thumb.png", note: "Green Hopper accessories" },
+    { id: "green-cotton-candy", name: "Cotton Candy", price: 1200, image: "./green-cotton-candy.png", thumb: "./green-cotton-candy-thumb.png", note: "Green Hopper accessories" },
+    { id: "green-pudding", name: "Pudding", price: 800, image: "./green-pudding.png", thumb: "./green-pudding-thumb.png", note: "Green Hopper accessories" },
+    { id: "green-egg-waffles", name: "Egg Waffles", price: 600, image: "./green-egg-waffles.png", thumb: "./green-egg-waffles-thumb.png", note: "Green Hopper accessories" },
+    { id: "green-pocket-mirror", name: "Pocket Mirror", price: 400, image: "./green-pocket-mirror.png", thumb: "./green-pocket-mirror-thumb.png", note: "Green Hopper accessories" },
+    { id: "green-pink-glasses", name: "Pink Glasses", price: 600, image: "./green-pink-glasses.png", thumb: "./green-pink-glasses-thumb.png", note: "Green Hopper accessories" },
+    { id: "green-mustache", name: "Mustache", price: 500, image: "./green-mustache.png", thumb: "./green-mustache-thumb.png", note: "Green Hopper accessories" },
+    { id: "green-angel-wings", name: "Angel Wings", price: 1200, image: "./green-angel-wings.png", thumb: "./green-angel-wings-thumb.png", note: "Green Hopper accessories" },
   ],
   "pet-yellow.png": [
-    { id: "yellow-sun-crown", name: "Sun Crown", price: 140, className: "is-sun-crown", note: "Sunny decorations for this partner" },
-    { id: "yellow-star-charm", name: "Star Charm", price: 210, className: "is-star-charm", note: "Sunny decorations for this partner" },
-    { id: "yellow-berry-bow", name: "Pink Bow", price: 190, className: "is-berry-bow", note: "Sunny decorations for this partner" },
+    { id: "yellow-wizard-hat", name: "Wizard Hat", price: 1200, image: "./yellow-wizard-hat.png", thumb: "./yellow-wizard-hat-thumb.png", note: "Yellow Spark accessories" },
+    { id: "yellow-sailor-hat", name: "Sailor Hat", price: 1000, image: "./yellow-sailor-hat.png", thumb: "./yellow-sailor-hat-thumb.png", note: "Yellow Spark accessories" },
+    { id: "yellow-pumpkin-hat", name: "Pumpkin Hat", price: 800, image: "./yellow-pumpkin-hat.png", thumb: "./yellow-pumpkin-hat-thumb.png", note: "Yellow Spark accessories" },
+    { id: "yellow-pudding-hat", name: "Pudding Hat", price: 800, image: "./yellow-pudding-hat.png", thumb: "./yellow-pudding-hat-thumb.png", note: "Yellow Spark accessories" },
+    { id: "yellow-dino-hat", name: "Dino Hat", price: 1000, image: "./yellow-dino-hat.png", thumb: "./yellow-dino-hat-thumb.png", note: "Yellow Spark accessories" },
+    { id: "yellow-strawberry-hat", name: "Strawberry Hat", price: 800, image: "./yellow-strawberry-hat.png", thumb: "./yellow-strawberry-hat-thumb.png", note: "Yellow Spark accessories" },
+    { id: "yellow-flower-crown", name: "Flower Crown", price: 800, image: "./yellow-flower-crown.png", thumb: "./yellow-flower-crown-thumb.png", note: "Yellow Spark accessories" },
+    { id: "yellow-bat-wings", name: "Bat Wings", price: 1200, image: "./yellow-bat-wings.png", thumb: "./yellow-bat-wings-thumb.png", note: "Yellow Spark accessories" },
+    { id: "yellow-water-drop", name: "Water Drop", price: 900, image: "./yellow-water-drop.png", thumb: "./yellow-water-drop-thumb.png", note: "Yellow Spark accessories" },
+    { id: "yellow-bandage", name: "Bandage", price: 400, image: "./yellow-bandage.png", thumb: "./yellow-bandage-thumb.png", note: "Yellow Spark accessories" },
+    { id: "yellow-star-wand", name: "Star Wand", price: 800, image: "./yellow-star-wand.png", thumb: "./yellow-star-wand-thumb.png", note: "Yellow Spark accessories" },
+    { id: "yellow-star-glasses", name: "Star Glasses", price: 600, image: "./yellow-star-glasses.png", thumb: "./yellow-star-glasses-thumb.png", note: "Yellow Spark accessories" },
   ],
   "pet-orange.png": [
-    { id: "orange-sun-crown", name: "Trail Crown", price: 130, className: "is-sun-crown", note: "Trail decorations for this partner" },
-    { id: "orange-star-charm", name: "Map Star", price: 190, className: "is-star-charm", note: "Trail decorations for this partner" },
-    { id: "orange-leaf-hat", name: "Tiny Leaf", price: 210, className: "is-leaf-hat", note: "Trail decorations for this partner" },
+    { id: "orange-pink-glasses", name: "Pink Glasses", price: 1200, image: "./orange-pink-glasses.png", thumb: "./orange-pink-glasses-thumb.png", note: "Orange Scout accessories" },
+    { id: "orange-purple-horns", name: "Purple Horns", price: 1000, image: "./orange-purple-horns.png", thumb: "./orange-purple-horns-thumb.png", note: "Orange Scout accessories" },
+    { id: "orange-candy-mask", name: "Candy Mask", price: 1000, image: "./orange-candy-mask.png", thumb: "./orange-candy-mask-thumb.png", note: "Orange Scout accessories" },
+    { id: "orange-pink-bow", name: "Pink Bow", price: 400, image: "./orange-pink-bow.png", thumb: "./orange-pink-bow-thumb.png", note: "Orange Scout accessories" },
+    { id: "orange-bubble-wand", name: "Bubble Wand", price: 800, image: "./orange-bubble-wand.png", thumb: "./orange-bubble-wand-thumb.png", note: "Orange Scout accessories" },
+    { id: "orange-party-hat", name: "Party Hat", price: 1200, image: "./orange-party-hat.png", thumb: "./orange-party-hat-thumb.png", note: "Orange Scout accessories" },
+    { id: "orange-bear-ears", name: "Bear Ears", price: 1000, image: "./orange-bear-ears.png", thumb: "./orange-bear-ears-thumb.png", note: "Orange Scout accessories" },
+    { id: "orange-camera", name: "Camera", price: 600, image: "./orange-camera.png", thumb: "./orange-camera-thumb.png", note: "Orange Scout accessories" },
+    { id: "orange-name-tag", name: "Name Tag", price: 400, image: "./orange-name-tag.png", thumb: "./orange-name-tag-thumb.png", note: "Orange Scout accessories" },
+    { id: "orange-monkey-charm", name: "Monkey Charm", price: 1000, image: "./orange-monkey-charm.png", thumb: "./orange-monkey-charm-thumb.png", note: "Orange Scout accessories" },
+    { id: "orange-waffle", name: "Waffle", price: 500, image: "./orange-waffle.png", thumb: "./orange-waffle-thumb.png", note: "Orange Scout accessories" },
+    { id: "orange-pineapple-hat", name: "Pineapple Hat", price: 800, image: "./orange-pineapple-hat.png", thumb: "./orange-pineapple-hat-thumb.png", note: "Orange Scout accessories" },
   ],
   "pet-purple.png": [
-    { id: "purple-star-charm", name: "Moon Star", price: 120, className: "is-star-charm", note: "Night decorations for this partner" },
-    { id: "purple-bubble-cap", name: "Dream Cap", price: 190, className: "is-bubble-cap", note: "Night decorations for this partner" },
-    { id: "purple-berry-bow", name: "Violet Bow", price: 220, className: "is-berry-bow", note: "Night decorations for this partner" },
+    { id: "purple-butter-toast", name: "Butter Toast", price: 400, image: "./purple-butter-toast.png", thumb: "./purple-butter-toast-thumb.png", note: "Purple Night accessories" },
+    { id: "purple-egg-tart", name: "Egg Tart", price: 400, image: "./purple-egg-tart.png", thumb: "./purple-egg-tart-thumb.png", note: "Purple Night accessories" },
+    { id: "purple-fish-ball-bowl", name: "Fish Ball Bowl", price: 800, image: "./purple-fish-ball-bowl.png", thumb: "./purple-fish-ball-bowl-thumb.png", note: "Purple Night accessories" },
+    { id: "purple-umbrella", name: "Floral Umbrella", price: 1200, image: "./purple-umbrella.png", thumb: "./purple-umbrella-thumb.png", note: "Purple Night accessories" },
+    { id: "purple-taxi-sign", name: "Taxi Sign", price: 1000, image: "./purple-taxi-sign.png", thumb: "./purple-taxi-sign-thumb.png", note: "Purple Night accessories" },
+    { id: "purple-milk-tea", name: "Milk Tea", price: 800, image: "./purple-milk-tea.png", thumb: "./purple-milk-tea-thumb.png", note: "Purple Night accessories" },
+    { id: "purple-ferry-bag", name: "Ferry Bag", price: 1000, image: "./purple-ferry-bag.png", thumb: "./purple-ferry-bag-thumb.png", note: "Purple Night accessories" },
+    { id: "purple-minibus-sign", name: "Minibus Sign", price: 600, image: "./purple-minibus-sign.png", thumb: "./purple-minibus-sign-thumb.png", note: "Purple Night accessories" },
+    { id: "purple-market-bag", name: "Market Bag", price: 900, image: "./purple-market-bag.png", thumb: "./purple-market-bag-thumb.png", note: "Purple Night accessories" },
+    { id: "purple-pineapple-bun", name: "Pineapple Bun", price: 1200, image: "./purple-pineapple-bun.png", thumb: "./purple-pineapple-bun-thumb.png", note: "Purple Night accessories" },
+    { id: "purple-mushroom-hat", name: "Mushroom Hat", price: 800, image: "./purple-mushroom-hat.png", thumb: "./purple-mushroom-hat-thumb.png", note: "Purple Night accessories" },
+    { id: "purple-crown", name: "Royal Crown", price: 1000, image: "./purple-crown.png", thumb: "./purple-crown-thumb.png", note: "Purple Night accessories" },
   ],
   "pet-pink.png": [
-    { id: "pink-berry-bow", name: "Heart Bow", price: 130, className: "is-berry-bow", note: "Sweet decorations for this partner" },
-    { id: "pink-star-charm", name: "Sugar Star", price: 190, className: "is-star-charm", note: "Sweet decorations for this partner" },
-    { id: "pink-shell-pin", name: "Shell Clip", price: 240, className: "is-shell-pin", note: "Sweet decorations for this partner" },
+    { id: "pink-card-pass", name: "Card Pass", price: 1000, image: "./pink-card-pass.png", thumb: "./pink-card-pass-thumb.png", note: "Pink Mist accessories" },
+    { id: "pink-milk-tea", name: "Milk Tea", price: 800, image: "./pink-milk-tea.png", thumb: "./pink-milk-tea-thumb.png", note: "Pink Mist accessories" },
+    { id: "pink-neon-sign", name: "Neon Sign", price: 400, image: "./pink-neon-sign.png", thumb: "./pink-neon-sign-thumb.png", note: "Pink Mist accessories" },
+    { id: "pink-woven-bag", name: "Woven Bag", price: 600, image: "./pink-woven-bag.png", thumb: "./pink-woven-bag-thumb.png", note: "Pink Mist accessories" },
+    { id: "pink-bouquet", name: "Flower Bouquet", price: 1200, image: "./pink-bouquet.png", thumb: "./pink-bouquet-thumb.png", note: "Pink Mist accessories" },
+    { id: "pink-strawberry-bag", name: "Strawberry Bag", price: 1200, image: "./pink-strawberry-bag.png", thumb: "./pink-strawberry-bag-thumb.png", note: "Pink Mist accessories" },
+    { id: "pink-butterfly", name: "Butterfly", price: 600, image: "./pink-butterfly.png", thumb: "./pink-butterfly-thumb.png", note: "Pink Mist accessories" },
+    { id: "pink-fox-ears", name: "Fox Ears", price: 800, image: "./pink-fox-ears.png", thumb: "./pink-fox-ears-thumb.png", note: "Pink Mist accessories" },
+    { id: "pink-mustache-face", name: "Mustache", price: 500, image: "./pink-mustache-face.png", thumb: "./pink-mustache-face-thumb.png", note: "Pink Mist accessories" },
+    { id: "pink-santa-hat", name: "Santa Hat", price: 1000, image: "./pink-santa-hat.png", thumb: "./pink-santa-hat-thumb.png", note: "Pink Mist accessories" },
+    { id: "pink-flower-clip", name: "Flower Clip", price: 600, image: "./pink-flower-clip.png", thumb: "./pink-flower-clip-thumb.png", note: "Pink Mist accessories" },
+    { id: "pink-bear-bag", name: "Bear Bag", price: 800, image: "./pink-bear-bag.png", thumb: "./pink-bear-bag-thumb.png", note: "Pink Mist accessories" },
   ],
   "pet-selected.png": [
-    { id: "rabbit-berry-bow", name: "Bunny Bow", price: 130, className: "is-berry-bow", note: "Bunny decorations for this partner" },
-    { id: "rabbit-leaf-hat", name: "Clover Hat", price: 180, className: "is-leaf-hat", note: "Bunny decorations for this partner" },
-    { id: "rabbit-star-charm", name: "Jump Star", price: 230, className: "is-star-charm", note: "Bunny decorations for this partner" },
+    { id: "rabbit-chick-hat", name: "Chick Hat", price: 1200, image: "./rabbit-chick-hat.png", thumb: "./rabbit-chick-hat-thumb.png", note: "Pink Bunny accessories" },
+    { id: "rabbit-gold-crown", name: "Gold Crown", price: 1000, image: "./rabbit-gold-crown.png", thumb: "./rabbit-gold-crown-thumb.png", note: "Pink Bunny accessories" },
+    { id: "rabbit-bubble", name: "Bubble", price: 400, image: "./rabbit-bubble.png", thumb: "./rabbit-bubble-thumb.png", note: "Pink Bunny accessories" },
+    { id: "rabbit-straw-hat", name: "Straw Hat", price: 600, image: "./rabbit-straw-hat.png", thumb: "./rabbit-straw-hat-thumb.png", note: "Pink Bunny accessories" },
+    { id: "rabbit-star-wand", name: "Star Wand", price: 600, image: "./rabbit-star-wand.png", thumb: "./rabbit-star-wand-thumb.png", note: "Pink Bunny accessories" },
+    { id: "rabbit-bunny-ears", name: "Bunny Ears", price: 1200, image: "./rabbit-bunny-ears.png", thumb: "./rabbit-bunny-ears-thumb.png", note: "Pink Bunny accessories" },
+    { id: "rabbit-chef-hat", name: "Chef Hat", price: 1200, image: "./rabbit-chef-hat.png", thumb: "./rabbit-chef-hat-thumb.png", note: "Pink Bunny accessories" },
+    { id: "rabbit-red-bow", name: "Red Bow", price: 800, image: "./rabbit-red-bow.png", thumb: "./rabbit-red-bow-thumb.png", note: "Pink Bunny accessories" },
+    { id: "rabbit-star-stickers", name: "Star Stickers", price: 400, image: "./rabbit-star-stickers.png", thumb: "./rabbit-star-stickers-thumb.png", note: "Pink Bunny accessories" },
+    { id: "rabbit-star-clip", name: "Star Clip", price: 400, image: "./rabbit-star-clip.png", thumb: "./rabbit-star-clip-thumb.png", note: "Pink Bunny accessories" },
+    { id: "rabbit-ice-cream", name: "Ice Cream", price: 800, image: "./rabbit-ice-cream.png", thumb: "./rabbit-ice-cream-thumb.png", note: "Pink Bunny accessories" },
+    { id: "rabbit-fish-skewer", name: "Fish Skewer", price: 600, image: "./rabbit-fish-skewer.png", thumb: "./rabbit-fish-skewer-thumb.png", note: "Pink Bunny accessories" },
   ],
   default: [
     { id: "default-star-charm", name: "Star Charm", price: 120, className: "is-star-charm", note: "Special decorations for this partner" },
@@ -72,6 +130,21 @@ const decorationCatalog = {
     { id: "default-sun-crown", name: "Tiny Crown", price: 230, className: "is-sun-crown", note: "Special decorations for this partner" },
   ],
 };
+
+const homeEffectsCatalog = [
+  { id: "home-rocking-unicorn", name: "Rocking Unicorn", price: 1200, image: "./home-effect-unicorn.png" },
+  { id: "home-christmas-tree", name: "Christmas Tree", price: 1000, image: "./home-effect-tree.png" },
+  { id: "home-floor-lamp", name: "Floor Lamp", price: 800, image: "./home-effect-lamp.png" },
+  { id: "home-flower-pot", name: "Flower Pot", price: 800, image: "./home-effect-flower-pot.png" },
+  { id: "home-spray-bottle", name: "Spray Bottle", price: 400, image: "./home-effect-spray.png" },
+  { id: "home-cupcake", name: "Cupcake", price: 400, image: "./home-effect-cupcake.png" },
+  { id: "home-armchair", name: "Rainbow Armchair", price: 800, image: "./home-effect-armchair.png" },
+  { id: "home-camera", name: "Retro Camera", price: 600, image: "./home-effect-camera-clean.png" },
+  { id: "home-chocolate-cake", name: "Chocolate Cake", price: 900, image: "./home-effect-cake.png" },
+  { id: "home-gift-box", name: "Gift Box", price: 1200, image: "./home-effect-gift.png" },
+  { id: "home-wooden-stool", name: "Wooden Stool", price: 800, image: "./home-effect-stool.png" },
+  { id: "home-heart-cushion", name: "Heart Cushion", price: 600, image: "./home-effect-heart.png" },
+];
 
 const dashboardBackgrounds = [
   { src: "./sea-background.png", weight: 0.65 },
@@ -288,6 +361,164 @@ const hungMuiKukCheckpoints = [
   },
 ];
 
+const taoFongShanCheckpoints = [
+  {
+    id: "tao-bridge-view",
+    title: "Tao Fong Shan Route 1",
+    lat: 22.3815,
+    lng: 114.1952,
+    unlockItem: {
+      name: "Mysterious items A",
+      image: "./reward-item-a-box.png",
+    },
+    distanceRequired: 80,
+    image: "./tao-checkpoint-1-hero.png",
+    thumb: "./tao-route-1-thumb.png",
+    walkDistance: "1.6km",
+    cameraLabel: "Tao Fong Shan Trail",
+    unlockIndex: 0,
+    heroVariant: "tao-one",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "tao-cross-view",
+    title: "Tao Fong Shan Route 2",
+    lat: 22.3822,
+    lng: 114.196,
+    unlockItem: {
+      name: "Mysterious items B",
+      image: "./reward-item-b-chest.png",
+    },
+    distanceRequired: 80,
+    image: "./tao-checkpoint-2-hero.png",
+    thumb: "./tao-route-2-thumb.png",
+    walkDistance: "1.6km",
+    cameraLabel: "Tao Fong Shan Cross",
+    unlockIndex: 1,
+    heroVariant: "tao-two",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "tao-labyrinth-view",
+    title: "Tao Fong Shan Route 3",
+    lat: 22.3828,
+    lng: 114.1967,
+    unlockItem: {
+      name: "Mysterious items C",
+      image: "./reward-item-c-potion.png",
+    },
+    distanceRequired: 80,
+    image: "./tao-route-3-thumb.png",
+    thumb: "./tao-route-3-thumb.png",
+    walkDistance: "1.6km",
+    cameraLabel: "Tao Fong Shan Labyrinth",
+    unlockIndex: 2,
+    heroVariant: "tao-three",
+    completed: false,
+    photo: null,
+  },
+];
+
+const pakShekKokCheckpoints = [
+  {
+    id: "pak-waterfront-start",
+    title: "Pak Shek Kok Route 1",
+    lat: 22.4265,
+    lng: 114.2118,
+    unlockItem: {
+      name: "Mysterious items A",
+      image: "./reward-item-a-box.png",
+    },
+    distanceRequired: 80,
+    image: "./pak-route-1-thumb.png",
+    thumb: "./pak-route-1-thumb.png",
+    walkDistance: "1.6km",
+    cameraLabel: "Pak Shek Kok Promenade",
+    unlockIndex: 0,
+    heroVariant: "pak-one",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "pak-harbour-view",
+    title: "Pak Shek Kok Route 2",
+    lat: 22.4252,
+    lng: 114.2124,
+    unlockItem: {
+      name: "Mysterious items B",
+      image: "./reward-item-b-chest.png",
+    },
+    distanceRequired: 80,
+    image: "./pak-route-2-thumb.png",
+    thumb: "./pak-route-2-thumb.png",
+    walkDistance: "1.6km",
+    cameraLabel: "Pak Shek Kok Promenade",
+    unlockIndex: 1,
+    heroVariant: "pak-two",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "pak-seaside-trees",
+    title: "Pak Shek Kok Route 3",
+    lat: 22.4238,
+    lng: 114.2131,
+    unlockItem: {
+      name: "Mysterious items C",
+      image: "./reward-item-c-potion.png",
+    },
+    distanceRequired: 80,
+    image: "./pak-route-3-thumb.png",
+    thumb: "./pak-route-3-thumb.png",
+    walkDistance: "1.6km",
+    cameraLabel: "Pak Shek Kok Promenade",
+    unlockIndex: 2,
+    heroVariant: "pak-three",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "pak-coastal-path",
+    title: "Pak Shek Kok Route 4",
+    lat: 22.4221,
+    lng: 114.2139,
+    unlockItem: {
+      name: "Mysterious items D",
+      image: "./reward-item-d-scroll.png",
+    },
+    distanceRequired: 80,
+    image: "./pak-route-4-thumb.png",
+    thumb: "./pak-route-4-thumb.png",
+    walkDistance: "1.6km",
+    cameraLabel: "Pak Shek Kok Promenade",
+    unlockIndex: 3,
+    heroVariant: "pak-four",
+    completed: false,
+    photo: null,
+  },
+  {
+    id: "pak-promenade-end",
+    title: "Pak Shek Kok Route 5",
+    lat: 22.4208,
+    lng: 114.2146,
+    unlockItem: {
+      name: "Mysterious items D",
+      image: "./reward-item-d-scroll.png",
+    },
+    distanceRequired: 80,
+    image: "./pak-route-5-thumb.png",
+    thumb: "./pak-route-5-thumb.png",
+    walkDistance: "1.6km",
+    cameraLabel: "Pak Shek Kok Promenade",
+    unlockIndex: 3,
+    heroVariant: "pak-five",
+    completed: false,
+    photo: null,
+  },
+];
+
 const rewardItems = [
   {
     id: "item-b",
@@ -332,7 +563,15 @@ let translated = false;
 let selectedGoal = 8000;
 let selectedPet = pets[0];
 let ownedDecorations = new Set(Object.values(decorationCatalog).flat().map((decoration) => decoration.id));
+let shopActiveTab = "accessories";
+let shopCoins = 1250;
+let ownedHomeEffects = new Set();
 let equippedDecorations = {};
+let equippedHomeEffect = null;
+let pendingHomeEffectPurchase = null;
+let homeEffectPositions = {};
+let homeEffectDragState = null;
+let suppressHomeEffectClick = false;
 let hatchTaps = 0;
 let isPetSpinning = false;
 let dashboardExp = 40;
@@ -366,6 +605,7 @@ const selfieScreen = document.querySelector("#selfieScreen");
 const hatchScreen = document.querySelector("#hatchScreen");
 const partnerScreen = document.querySelector("#partnerScreen");
 const dashboardScreen = document.querySelector("#dashboardScreen");
+const collectionScreen = document.querySelector("#collectionScreen");
 const schoolLeaderboardScreen = document.querySelector("#schoolLeaderboardScreen");
 const friendsListScreen = document.querySelector("#friendsListScreen");
 const friendFeedScreen = document.querySelector("#friendFeedScreen");
@@ -417,7 +657,9 @@ const dashboardExpText = document.querySelector("#dashboardExpText");
 const dashboardPetImage = document.querySelector("#dashboardPetImage");
 const dashboardPetStage = document.querySelector(".dashboard-pet-stage");
 const dashboardPetDecoration = document.querySelector("#dashboardPetDecoration");
+const dashboardHomeEffect = document.querySelector("#dashboardHomeEffect");
 const dashboardStepCount = document.querySelector("#dashboardStepCount");
+const dashboardCardsCollection = document.querySelector(".cards-collection");
 const dashboardFindButton = document.querySelector("#dashboardFindButton");
 const dashboardShopButton = document.querySelector("#dashboardShopButton");
 const dashboardSocialButton = document.querySelector("#dashboardSocialButton");
@@ -428,10 +670,28 @@ const dashboardSideNav = document.querySelector(".dashboard-side-nav");
 const shopDecorationPanel = document.querySelector("#shopDecorationPanel");
 const shopDecorationCloseButton = document.querySelector("#shopDecorationCloseButton");
 const shopDecorationGrid = document.querySelector("#shopDecorationGrid");
+const shopAccessoriesTab = document.querySelector("#shopAccessoriesTab");
+const shopHomeEffectsTab = document.querySelector("#shopHomeEffectsTab");
+const shopWalletAmount = document.querySelector("#shopWalletAmount");
 const shopPreviewPetImage = document.querySelector("#shopPreviewPetImage");
 const shopPreviewDecoration = document.querySelector("#shopPreviewDecoration");
 const shopPetTitle = document.querySelector("#shopPetTitle");
 const shopPetSubtitle = document.querySelector("#shopPetSubtitle");
+const shopPurchaseOverlay = document.querySelector("#shopPurchaseOverlay");
+const shopPurchaseCloseButton = document.querySelector("#shopPurchaseCloseButton");
+const shopPurchaseCancelButton = document.querySelector("#shopPurchaseCancelButton");
+const shopPurchaseConfirmButton = document.querySelector("#shopPurchaseConfirmButton");
+const shopPurchaseImage = document.querySelector("#shopPurchaseImage");
+const shopPurchaseItemName = document.querySelector("#shopPurchaseItemName");
+const shopPurchaseCost = document.querySelector("#shopPurchaseCost");
+const shopPurchaseBalance = document.querySelector("#shopPurchaseBalance");
+const shopSuccessOverlay = document.querySelector("#shopSuccessOverlay");
+const shopSuccessCloseButton = document.querySelector("#shopSuccessCloseButton");
+const shopSuccessOkButton = document.querySelector("#shopSuccessOkButton");
+const shopSuccessImage = document.querySelector("#shopSuccessImage");
+const shopSuccessItemName = document.querySelector("#shopSuccessItemName");
+const shopSuccessCost = document.querySelector("#shopSuccessCost");
+const collectionBackButton = document.querySelector("#collectionBackButton");
 const schoolRankBackButton = document.querySelector("#schoolRankBackButton");
 const schoolRankActionButton = document.querySelector("#schoolRankActionButton");
 const friendsListBackButton = document.querySelector("#friendsListBackButton");
@@ -574,6 +834,7 @@ function showScreen(screen) {
   hatchScreen.classList.toggle("is-active", screen === "hatch");
   partnerScreen.classList.toggle("is-active", screen === "partner");
   dashboardScreen.classList.toggle("is-active", screen === "dashboard");
+  collectionScreen.classList.toggle("is-active", screen === "collection");
   schoolLeaderboardScreen.classList.toggle("is-active", screen === "school-rank");
   friendsListScreen.classList.toggle("is-active", screen === "friends-list");
   friendFeedScreen.classList.toggle("is-active", screen === "friend-feed");
@@ -602,6 +863,9 @@ function showScreen(screen) {
   }
   if (screen === "selfie") {
     startSelfieCamera();
+  }
+  if (screen === "collection") {
+    collectionScreen.scrollTop = 0;
   }
   if (screen === "school-rank" || screen === "friends-list" || screen === "friend-feed" || screen === "my-feed" || screen === "new-post") {
     updateSchoolLeaderboard();
@@ -1381,6 +1645,40 @@ const routeWalkConfigs = {
       { name: "Mysterious items D", description: "This area was discovered", distance: "720m", image: "./hung-walk-item-d.png", locked: true },
     ],
   },
+  pak: {
+    backScreen: "nature",
+    name: "Pak shek kok promenade",
+    distance: "1.6km",
+    map: "./pak-walk-map-base.png",
+    checkpoints: pakShekKokCheckpoints,
+    pointPositions: [
+      { left: 248, top: 14, width: 30, height: 29 },
+      { left: 232, top: 116, width: 37, height: 36 },
+      { left: 207, top: 232, width: 41, height: 37 },
+      { left: 168, top: 333, width: 40, height: 36 },
+      { left: 183, top: 424, width: 46, height: 42 },
+    ],
+    items: [
+      { name: "Mysterious items A", description: "This area was discovered", distance: "120m", image: "./reward-item-a-box.png", locked: false },
+      { name: "Mysterious items B", description: "This area was discovered", distance: "350m", image: "./reward-item-b-chest.png", locked: false },
+      { name: "Mysterious items C", description: "This area was discovered", distance: "580m", image: "./reward-item-c-potion.png", locked: true },
+      { name: "Mysterious items D", description: "This area was discovered", distance: "720m", image: "./reward-item-d-scroll.png", locked: true },
+    ],
+  },
+  tao: {
+    backScreen: "nature",
+    name: "Tao Fong Shan",
+    distance: "1.6km",
+    map: "./tao-walk-map-base.png",
+    ctaLabel: "I got here!",
+    checkpoints: taoFongShanCheckpoints,
+    items: [
+      { name: "Mysterious items A", description: "This area was discovered", distance: "120m", image: "./reward-item-a-box.png", locked: false },
+      { name: "Mysterious items B", description: "This area was discovered", distance: "350m", image: "./reward-item-b-chest.png", locked: false },
+      { name: "Mysterious items C", description: "This area was discovered", distance: "580m", image: "./reward-item-c-potion.png", locked: true },
+      { name: "Mysterious items D", description: "This area was discovered", distance: "720m", image: "./reward-item-d-scroll.png", locked: true },
+    ],
+  },
 };
 
 function renderUnlockCards(cards, items, checkpointsForRoute = []) {
@@ -1421,12 +1719,26 @@ function openRouteWalk(routeKey = "yuen") {
   routeWalkMap.dataset.route = routeKey;
   routeWalkMapImage.src = config.map;
   routeWalkMapImage.alt = config.name;
-  routeWalkName.textContent = config.name;
+  routeWalkName.classList.toggle("is-cta", Boolean(config.ctaLabel));
+  if (config.ctaLabel) {
+    routeWalkName.innerHTML = `<span>${config.ctaLabel}</span><img src="./yuen-camera-icon.svg" alt="" />`;
+    routeWalkName.setAttribute("aria-label", `${config.ctaLabel} Start camera check-in`);
+  } else {
+    routeWalkName.textContent = config.name;
+    routeWalkName.setAttribute("aria-label", config.name);
+  }
   routeWalkDistanceValue.textContent = config.distance;
 
   routePhotoButtons.forEach((button, index) => {
     const checkpoint = config.checkpoints[index];
+    const position = config.pointPositions?.[index];
     button.hidden = !checkpoint;
+    Object.assign(button.style, {
+      left: position ? `${position.left}px` : "",
+      top: position ? `${position.top}px` : "",
+      width: position ? `${position.width}px` : "",
+      height: position ? `${position.height}px` : "",
+    });
     if (!checkpoint) return;
     const image = button.querySelector("img");
     image.src = checkpoint.thumb || checkpoint.image;
@@ -1481,43 +1793,143 @@ function getSelectedDecorationCatalog() {
   return decorationCatalog[getSelectedPetKey()] || decorationCatalog.default;
 }
 
+function getHomeEffect(effectId) {
+  return homeEffectsCatalog.find((effect) => effect.id === effectId) || null;
+}
+
+function getDefaultHomeEffectPosition() {
+  return { x: -34, y: 132 };
+}
+
+function clampHomeEffectPosition(position) {
+  if (!dashboardPetStage || !dashboardHomeEffect) return position;
+
+  const stageBounds = dashboardPetStage.getBoundingClientRect();
+  const effectBounds = dashboardHomeEffect.getBoundingClientRect();
+  const effectWidth = effectBounds.width || 56;
+  const effectHeight = effectBounds.height || 56;
+  const minX = -52;
+  const maxX = stageBounds.width - effectWidth + 48;
+  const minY = 48;
+  const maxY = stageBounds.height - effectHeight - 8;
+
+  return {
+    x: Math.min(Math.max(position.x, minX), maxX),
+    y: Math.min(Math.max(position.y, minY), maxY),
+  };
+}
+
+function setDashboardHomeEffectPosition(position, shouldPersist = false) {
+  if (!dashboardHomeEffect) return;
+  const safePosition = clampHomeEffectPosition(position);
+  dashboardHomeEffect.style.setProperty("--home-effect-left", `${safePosition.x}px`);
+  dashboardHomeEffect.style.setProperty("--home-effect-top", `${safePosition.y}px`);
+
+  if (shouldPersist && equippedHomeEffect) {
+    homeEffectPositions[equippedHomeEffect] = safePosition;
+  }
+}
+
 function getEquippedDecoration() {
   const petKey = getSelectedPetKey();
   const decorationId = equippedDecorations[petKey];
   return getSelectedDecorationCatalog().find((decoration) => decoration.id === decorationId) || null;
 }
 
+function getSelectedPetDisplaySrc() {
+  return getEquippedDecoration()?.image || selectedPet.src;
+}
+
 function setDecorationClass(element, decoration) {
   element.className = decoration?.className ? `dashboard-pet-decoration ${decoration.className}` : "dashboard-pet-decoration";
 }
 
+function applyDashboardHomeEffect() {
+  const homeEffect = getHomeEffect(equippedHomeEffect);
+  if (!dashboardHomeEffect) return;
+
+  if (!homeEffect) {
+    dashboardHomeEffect.hidden = true;
+    dashboardHomeEffect.removeAttribute("src");
+    dashboardHomeEffect.alt = "";
+    dashboardHomeEffect.removeAttribute("role");
+    dashboardHomeEffect.removeAttribute("tabindex");
+    dashboardHomeEffect.removeAttribute("title");
+    dashboardHomeEffect.removeAttribute("aria-label");
+    dashboardHomeEffect.removeAttribute("data-home-effect-id");
+    dashboardHomeEffect.classList.remove("is-dragging", "is-long-press-ready");
+    return;
+  }
+
+  dashboardHomeEffect.hidden = false;
+  dashboardHomeEffect.src = homeEffect.image;
+  dashboardHomeEffect.alt = homeEffect.name;
+  dashboardHomeEffect.role = "button";
+  dashboardHomeEffect.tabIndex = 0;
+  dashboardHomeEffect.dataset.homeEffectId = homeEffect.id;
+  dashboardHomeEffect.title = `Click to remove ${homeEffect.name}. Long press to move.`;
+  dashboardHomeEffect.setAttribute("aria-label", `Click to remove ${homeEffect.name}. Long press to move.`);
+  setDashboardHomeEffectPosition(homeEffectPositions[homeEffect.id] || getDefaultHomeEffectPosition());
+}
+
 function applyDashboardDecoration() {
-  setDecorationClass(dashboardPetDecoration, getEquippedDecoration());
+  const equippedDecoration = getEquippedDecoration();
+  dashboardPetImage.src = getSelectedPetDisplaySrc();
+  dashboardPetImage.alt = equippedDecoration ? `${selectedPet.name} wearing ${equippedDecoration.name}` : selectedPet.name;
+  setDecorationClass(dashboardPetDecoration, equippedDecoration?.className ? equippedDecoration : null);
+  applyDashboardHomeEffect();
+}
+
+function updateShopWallet() {
+  shopWalletAmount.textContent = String(shopCoins);
+  shopWalletAmount.closest(".shop-decoration-wallet")?.setAttribute("aria-label", `Coins ${shopCoins}`);
+}
+
+function updateShopTabs() {
+  const tabs = [
+    { element: shopAccessoriesTab, tab: "accessories" },
+    { element: shopHomeEffectsTab, tab: "home" },
+  ];
+
+  tabs.forEach(({ element, tab }) => {
+    const isActive = shopActiveTab === tab;
+    element.classList.toggle("is-active", isActive);
+    element.setAttribute("aria-selected", isActive ? "true" : "false");
+  });
 }
 
 function renderShopPanel() {
-  const decorations = getSelectedDecorationCatalog();
+  const isHomeTab = shopActiveTab === "home";
+  const items = isHomeTab ? homeEffectsCatalog : getSelectedDecorationCatalog();
   const equippedDecoration = getEquippedDecoration();
+  const equippedHome = getHomeEffect(equippedHomeEffect);
 
-  shopPreviewPetImage.src = selectedPet.src;
+  shopPreviewPetImage.src = getSelectedPetDisplaySrc();
   shopPreviewPetImage.alt = selectedPet.name;
-  shopPetTitle.textContent = selectedPet.name;
-  shopPetSubtitle.textContent = decorations[0]?.note || "Special decorations for this partner";
-  setDecorationClass(shopPreviewDecoration, equippedDecoration);
+  shopPetTitle.textContent = isHomeTab ? "Home Effects" : selectedPet.name;
+  shopPetSubtitle.textContent = isHomeTab ? "Furniture effects shared by every partner" : items[0]?.note || "Special decorations for this partner";
+  setDecorationClass(shopPreviewDecoration, equippedDecoration?.className ? equippedDecoration : null);
+  updateShopTabs();
+  updateShopWallet();
 
+  shopDecorationGrid.dataset.shopTab = shopActiveTab;
+  shopDecorationGrid.setAttribute("aria-label", isHomeTab ? "Buy home effects" : "Buy pet decorations");
   shopDecorationGrid.innerHTML = "";
-  decorations.forEach((decoration) => {
-    const isOwned = ownedDecorations.has(decoration.id);
-    const isEquipped = decoration.isDefault ? !equippedDecoration : equippedDecoration?.id === decoration.id;
+  items.forEach((item) => {
+    const isOwned = isHomeTab ? ownedHomeEffects.has(item.id) : ownedDecorations.has(item.id);
+    const isEquipped = isHomeTab ? equippedHome?.id === item.id : item.isDefault ? !equippedDecoration : equippedDecoration?.id === item.id;
     const card = document.createElement("button");
-    card.className = `shop-decoration-card${decoration.isDefault ? " is-default" : ""}${isOwned ? " is-owned" : " is-locked"}${isEquipped ? " is-equipped" : ""}`;
+    card.className = `shop-decoration-card${isHomeTab ? " is-home-effect" : ""}${item.isDefault ? " is-default" : ""}${isOwned ? " is-owned" : " is-locked"}${isEquipped ? " is-equipped" : ""}`;
     card.type = "button";
-    card.dataset.decorationId = decoration.id;
+    card.dataset.decorationId = item.id;
+    card.dataset.shopItemId = item.id;
+    card.setAttribute("aria-pressed", isEquipped ? "true" : "false");
     card.innerHTML = `
-      <span class="shop-decoration-icon ${decoration.className || "is-default-skin"}" aria-hidden="true"></span>
-      <strong>${decoration.name}</strong>
-      <em>${decoration.isDefault ? "Original skin" : `${decoration.price} steps`}</em>
-      <span class="shop-decoration-action">${isEquipped ? "Selected" : decoration.isDefault ? "Default" : "Wear"}</span>
+      <span class="shop-decoration-icon ${item.className || ""}" aria-hidden="true">
+        ${item.thumb || item.image ? `<img src="${item.thumb || item.image}" alt="" />` : ""}
+      </span>
+      <strong>${item.name}</strong>
+      <span class="shop-decoration-price"><span aria-hidden="true"></span>${item.price}</span>
     `;
     shopDecorationGrid.appendChild(card);
   });
@@ -1532,6 +1944,8 @@ function openShopPanel() {
 function closeShopPanel() {
   dashboardScreen.classList.remove("is-shop-open");
   shopDecorationPanel.setAttribute("aria-hidden", "true");
+  closePurchaseModal();
+  closeSuccessModal();
 }
 
 function openSocialHub(returnScreen = "dashboard") {
@@ -1547,12 +1961,174 @@ function selectDecoration(decorationId) {
   const petKey = getSelectedPetKey();
   if (decoration.isDefault) {
     delete equippedDecorations[petKey];
+  } else if (equippedDecorations[petKey] === decoration.id) {
+    delete equippedDecorations[petKey];
   } else {
     equippedDecorations[petKey] = decoration.id;
   }
 
   applyDashboardDecoration();
   renderShopPanel();
+}
+
+function setShopModalVisibility(overlay, isOpen) {
+  overlay.classList.toggle("is-open", isOpen);
+  overlay.setAttribute("aria-hidden", isOpen ? "false" : "true");
+}
+
+function openPurchaseModal(effect) {
+  pendingHomeEffectPurchase = effect;
+  shopPurchaseImage.src = effect.image;
+  shopPurchaseImage.alt = effect.name;
+  shopPurchaseItemName.textContent = effect.name;
+  shopPurchaseCost.textContent = String(effect.price);
+  shopPurchaseBalance.textContent = shopCoins >= effect.price ? `Balance: ${shopCoins}` : `Need ${effect.price - shopCoins} more coins`;
+  shopPurchaseConfirmButton.disabled = shopCoins < effect.price;
+  setShopModalVisibility(shopPurchaseOverlay, true);
+}
+
+function closePurchaseModal() {
+  pendingHomeEffectPurchase = null;
+  setShopModalVisibility(shopPurchaseOverlay, false);
+  shopPurchaseConfirmButton.disabled = false;
+}
+
+function openSuccessModal(effect) {
+  shopSuccessImage.src = effect.image;
+  shopSuccessImage.alt = effect.name;
+  shopSuccessItemName.textContent = effect.name;
+  shopSuccessCost.textContent = String(effect.price);
+  setShopModalVisibility(shopSuccessOverlay, true);
+}
+
+function closeSuccessModal() {
+  setShopModalVisibility(shopSuccessOverlay, false);
+}
+
+function confirmHomeEffectPurchase() {
+  const effect = pendingHomeEffectPurchase;
+  if (!effect || shopCoins < effect.price) return;
+
+  shopCoins -= effect.price;
+  ownedHomeEffects.add(effect.id);
+  equippedHomeEffect = effect.id;
+  applyDashboardHomeEffect();
+  closePurchaseModal();
+  renderShopPanel();
+  openSuccessModal(effect);
+}
+
+function selectHomeEffect(effectId) {
+  const effect = getHomeEffect(effectId);
+  if (!effect) return;
+
+  if (!ownedHomeEffects.has(effect.id)) {
+    openPurchaseModal(effect);
+    return;
+  }
+
+  equippedHomeEffect = equippedHomeEffect === effect.id ? null : effect.id;
+  applyDashboardHomeEffect();
+  renderShopPanel();
+}
+
+function removeDashboardHomeEffect(event) {
+  event.stopPropagation();
+  if (suppressHomeEffectClick) {
+    suppressHomeEffectClick = false;
+    return;
+  }
+  if (!equippedHomeEffect) return;
+
+  equippedHomeEffect = null;
+  applyDashboardHomeEffect();
+  if (dashboardScreen.classList.contains("is-shop-open")) {
+    renderShopPanel();
+  }
+}
+
+function clearHomeEffectLongPress() {
+  if (!homeEffectDragState?.timer) return;
+  clearTimeout(homeEffectDragState.timer);
+  homeEffectDragState.timer = null;
+}
+
+function startHomeEffectDrag(event) {
+  if (!equippedHomeEffect || dashboardHomeEffect.hidden) return;
+  event.stopPropagation();
+
+  clearHomeEffectLongPress();
+  const currentPosition = homeEffectPositions[equippedHomeEffect] || getDefaultHomeEffectPosition();
+  homeEffectDragState = {
+    pointerId: event.pointerId,
+    startClientX: event.clientX,
+    startClientY: event.clientY,
+    startX: currentPosition.x,
+    startY: currentPosition.y,
+    dragging: false,
+    timer: window.setTimeout(() => {
+      if (!homeEffectDragState || homeEffectDragState.pointerId !== event.pointerId) return;
+      homeEffectDragState.dragging = true;
+      suppressHomeEffectClick = true;
+      dashboardHomeEffect.classList.add("is-dragging");
+      dashboardHomeEffect.setPointerCapture?.(event.pointerId);
+    }, 450),
+  };
+}
+
+function moveHomeEffectDrag(event) {
+  if (!homeEffectDragState || homeEffectDragState.pointerId !== event.pointerId) return;
+
+  const deltaX = event.clientX - homeEffectDragState.startClientX;
+  const deltaY = event.clientY - homeEffectDragState.startClientY;
+  const movedFarEnough = Math.abs(deltaX) > 6 || Math.abs(deltaY) > 6;
+
+  if (!homeEffectDragState.dragging && movedFarEnough) {
+    clearHomeEffectLongPress();
+    suppressHomeEffectClick = true;
+    window.setTimeout(() => {
+      suppressHomeEffectClick = false;
+    }, 80);
+    homeEffectDragState = null;
+    return;
+  }
+
+  if (!homeEffectDragState.dragging) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+  setDashboardHomeEffectPosition(
+    {
+      x: homeEffectDragState.startX + deltaX,
+      y: homeEffectDragState.startY + deltaY,
+    },
+    true
+  );
+}
+
+function endHomeEffectDrag(event) {
+  if (!homeEffectDragState || homeEffectDragState.pointerId !== event.pointerId) return;
+  event.stopPropagation();
+  clearHomeEffectLongPress();
+
+  if (homeEffectDragState.dragging) {
+    suppressHomeEffectClick = true;
+    dashboardHomeEffect.releasePointerCapture?.(event.pointerId);
+    window.setTimeout(() => {
+      suppressHomeEffectClick = false;
+    }, 80);
+  }
+
+  dashboardHomeEffect.classList.remove("is-dragging");
+  homeEffectDragState = null;
+}
+
+function selectShopItem(itemId) {
+  if (shopActiveTab === "home") {
+    selectHomeEffect(itemId);
+  } else {
+    selectDecoration(itemId);
+  }
 }
 
 function pickDashboardBackground() {
@@ -1772,7 +2348,22 @@ partnerCreateButton.addEventListener("click", () => {
   showScreen("dashboard");
 });
 
+function openCollectionPage(event) {
+  if (event?.target?.closest?.(".translate-card-button")) return;
+  event?.stopPropagation?.();
+  closeShopPanel();
+  showScreen("collection");
+}
+
 backButton.addEventListener("click", () => showScreen("dashboard"));
+collectionBackButton.addEventListener("click", () => showScreen("dashboard"));
+dashboardCardsCollection.addEventListener("click", openCollectionPage);
+dashboardCardsCollection.addEventListener("keydown", (event) => {
+  if (event.target.closest(".translate-card-button")) return;
+  if (event.key !== "Enter" && event.key !== " ") return;
+  event.preventDefault();
+  openCollectionPage(event);
+});
 dashboardFindButton.addEventListener("click", () => showScreen("walk"));
 dashboardShopButton.addEventListener("click", (event) => {
   event.stopPropagation();
@@ -1783,10 +2374,39 @@ dashboardShopButton.addEventListener("click", (event) => {
   }
 });
 shopDecorationCloseButton.addEventListener("click", closeShopPanel);
+shopAccessoriesTab.addEventListener("click", () => {
+  shopActiveTab = "accessories";
+  renderShopPanel();
+});
+shopHomeEffectsTab.addEventListener("click", () => {
+  shopActiveTab = "home";
+  renderShopPanel();
+});
 shopDecorationGrid.addEventListener("click", (event) => {
   const card = event.target.closest(".shop-decoration-card");
   if (!card) return;
-  selectDecoration(card.dataset.decorationId);
+  selectShopItem(card.dataset.shopItemId);
+});
+shopPurchaseOverlay.addEventListener("click", (event) => {
+  if (event.target === shopPurchaseOverlay) closePurchaseModal();
+});
+shopPurchaseCloseButton.addEventListener("click", closePurchaseModal);
+shopPurchaseCancelButton.addEventListener("click", closePurchaseModal);
+shopPurchaseConfirmButton.addEventListener("click", confirmHomeEffectPurchase);
+shopSuccessOverlay.addEventListener("click", (event) => {
+  if (event.target === shopSuccessOverlay) closeSuccessModal();
+});
+shopSuccessCloseButton.addEventListener("click", closeSuccessModal);
+shopSuccessOkButton.addEventListener("click", closeSuccessModal);
+dashboardHomeEffect.addEventListener("click", removeDashboardHomeEffect);
+dashboardHomeEffect.addEventListener("pointerdown", startHomeEffectDrag);
+dashboardHomeEffect.addEventListener("pointermove", moveHomeEffectDrag);
+dashboardHomeEffect.addEventListener("pointerup", endHomeEffectDrag);
+dashboardHomeEffect.addEventListener("pointercancel", endHomeEffectDrag);
+dashboardHomeEffect.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  event.preventDefault();
+  removeDashboardHomeEffect(event);
 });
 dashboardSocialButton.addEventListener("click", (event) => {
   event.stopPropagation();
@@ -1979,11 +2599,12 @@ routeDetailOverlay.addEventListener("click", (event) => {
   }
 });
 letsWalkButton.addEventListener("click", () => {
+  const routeKey = routeDetailOverlay.dataset.route || activeRouteDetailKey;
   totalSteps += 1800;
   updateProgress();
   closeRouteDetail();
-  if (routeWalkConfigs[activeRouteDetailKey]) {
-    openRouteWalk(activeRouteDetailKey);
+  if (routeWalkConfigs[routeKey]) {
+    openRouteWalk(routeKey);
     return;
   }
   showScreen("dashboard");
@@ -1991,6 +2612,14 @@ letsWalkButton.addEventListener("click", () => {
 routeWalkBackButton.addEventListener("click", () => {
   const config = routeWalkConfigs[activeRouteWalkKey] || routeWalkConfigs.yuen;
   showScreen(config.backScreen);
+});
+routeWalkName.addEventListener("click", () => {
+  const config = routeWalkConfigs[activeRouteWalkKey] || routeWalkConfigs.yuen;
+  if (!config.ctaLabel) return;
+  const checkpoint = config.checkpoints[0];
+  if (!checkpoint) return;
+  activeCheckpoint = checkpoint;
+  showScreen("camera-checkin");
 });
 routePhotoButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -2093,13 +2722,15 @@ translateCardButtons.forEach((button) => {
 });
 
 dashboardScreen.addEventListener("click", (event) => {
+  if (event.target.closest(".shop-modal-overlay")) return;
+
   if (dashboardScreen.classList.contains("is-shop-open") && !event.target.closest(".shop-decoration-panel")) {
     closeShopPanel();
     return;
   }
 
   const blockedTarget = event.target.closest(
-    "button, .dashboard-user-card, .dashboard-side-nav, .dashboard-pet-stage, .cards-collection, .shop-decoration-panel",
+    "button, .dashboard-user-card, .dashboard-side-nav, .dashboard-pet-stage, .cards-collection, .shop-decoration-panel, .shop-modal-overlay",
   );
   if (blockedTarget) return;
   dashboardScreen.classList.toggle("is-cards-collapsed");
